@@ -7,11 +7,9 @@ import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
 const heroSlides = [
-  { image: "/images/hero-lincoln.jpg", alt: "Lincoln Navigator" },
-  { image: "/images/hero-dodge.jpg", alt: "Dodge Charger" },
-  { image: "/images/hero-mazda.jpg", alt: "Mazda" },
-  { image: "/images/hero-jeep.jpg", alt: "Jeep" },
-  { image: "/images/hero-ford.jpg", alt: "Ford Pickup" },
+  { image: "/images/hero-mazda2.jpg", alt: "Mazda 2" },
+  { image: "/images/hero-territory.jpg", alt: "Ford Territory" },
+  { image: "/images/hero-ram700.jpg", alt: "Ram 700" },
 ];
 
 const categories = [
@@ -24,43 +22,63 @@ const categories = [
 const featuredVehicles = [
   { 
     id: 1, 
-    brand: "Lincoln", 
-    model: "Navigator", 
+    brand: "Mazda", 
+    model: "Mazda 2 Sedán", 
     year: 2025, 
-    price: "$2,599,900", 
-    image: "/images/auto6.png",
+    price: "$389,900", 
+    image: "/images/auto1.jpg",
     location: "Culiacán",
-    tag: "Destacado"
+    tag: "Nuevo"
   },
   { 
     id: 2, 
-    brand: "Dodge", 
-    model: "Attitude", 
+    brand: "Ram", 
+    model: "Ram 700 Regular", 
     year: 2025, 
-    price: "$301,900", 
-    image: "/images/hero.jpg",
+    price: "$329,900", 
+    image: "/images/auto3.jpg",
     location: "Los Mochis",
     tag: "Nuevo"
   },
   { 
     id: 3, 
     brand: "Peugeot", 
-    model: "2008", 
+    model: "Peugeot 3008", 
     year: 2025, 
-    price: "$355,900", 
+    price: "$529,900", 
     image: "/images/auto4.jpg",
     location: "Culiacán",
-    tag: "Oferta"
+    tag: "Nuevo"
   },
   { 
     id: 4, 
-    brand: "Mazda", 
-    model: "3 Sedán", 
+    brand: "Fiat", 
+    model: "Fiat Pulse", 
     year: 2025, 
-    price: "$463,900", 
-    image: "/images/auto1.jpg",
+    price: "$349,900", 
+    image: "/images/auto5.jpg",
     location: "Obregón",
-    tag: "Popular"
+    tag: "Nuevo"
+  },
+  { 
+    id: 5, 
+    brand: "Lincoln", 
+    model: "Lincoln Navigator", 
+    year: 2025, 
+    price: "$1,899,000", 
+    image: "/images/auto6.png",
+    location: "Culiacán",
+    tag: "Nuevo"
+  },
+  { 
+    id: 6, 
+    brand: "Dodge", 
+    model: "Dodge Attitude", 
+    year: 2025, 
+    price: "$299,900", 
+    image: "/images/hero.jpg",
+    location: "Los Mochis",
+    tag: "Nuevo"
   },
 ];
 
@@ -306,8 +324,8 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
           >
             <div>
-              <span className={styles.sectionLabel}>Destacados</span>
-              <h2 className={styles.sectionTitle}>Vehículos Destacados</h2>
+              <span className={styles.sectionLabel}>Algunas de nuestras unidades</span>
+              <h2 className={styles.sectionTitle}>Los vehículos favoritos<br />de nuestros clientes.</h2>
             </div>
             <Link href="/seminuevos" className={styles.linkArrow}>
               Ver todos →
