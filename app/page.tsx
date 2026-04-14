@@ -28,7 +28,8 @@ const featuredVehicles = [
     price: "$389,900", 
     image: "/images/auto1.jpg",
     location: "Culiacán",
-    tag: "Nuevo"
+    tag: "Nuevo",
+    slug: "mazda-2"
   },
   { 
     id: 2, 
@@ -38,7 +39,8 @@ const featuredVehicles = [
     price: "$329,900", 
     image: "/images/auto3.jpg",
     location: "Los Mochis",
-    tag: "Nuevo"
+    tag: "Nuevo",
+    slug: "ram-700"
   },
   { 
     id: 3, 
@@ -48,7 +50,8 @@ const featuredVehicles = [
     price: "$529,900", 
     image: "/images/auto4.jpg",
     location: "Culiacán",
-    tag: "Nuevo"
+    tag: "Nuevo",
+    slug: "peugeot-3008"
   },
   { 
     id: 4, 
@@ -58,7 +61,8 @@ const featuredVehicles = [
     price: "$349,900", 
     image: "/images/auto5.jpg",
     location: "Obregón",
-    tag: "Nuevo"
+    tag: "Nuevo",
+    slug: "fiat-pulse"
   },
   { 
     id: 5, 
@@ -68,7 +72,8 @@ const featuredVehicles = [
     price: "$1,899,000", 
     image: "/images/auto6.png",
     location: "Culiacán",
-    tag: "Nuevo"
+    tag: "Nuevo",
+    slug: "lincoln-navigator"
   },
   { 
     id: 6, 
@@ -78,7 +83,8 @@ const featuredVehicles = [
     price: "$299,900", 
     image: "/images/hero.jpg",
     location: "Los Mochis",
-    tag: "Nuevo"
+    tag: "Nuevo",
+    slug: "dodge-attitude"
   },
 ];
 
@@ -364,7 +370,7 @@ export default function HomePage() {
                   <p className={styles.featuredLocation}>{vehicle.location}</p>
                   <div className={styles.featuredFooter}>
                     <span className={styles.featuredPrice}>{vehicle.price}</span>
-                    <Link href="/contacts">Ver detalles →</Link>
+                    <Link href={`/cars/${vehicle.slug}`}>Ver detalles →</Link>
                   </div>
                 </div>
               </motion.div>
