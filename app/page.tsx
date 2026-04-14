@@ -346,33 +346,34 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-100px" }}
           >
             {featuredVehicles.map((vehicle) => (
-              <motion.div 
-                key={vehicle.id} 
-                className={styles.featuredCard}
+              <motion.div
+                key={vehicle.id}
                 variants={fadeInUp}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
-                <div className={styles.featuredImage}>
-                  <Image 
-                    src={vehicle.image} 
-                    alt={`${vehicle.brand} ${vehicle.model}`} 
-                    fill
-                  />
-                  <span className={styles.featuredTag}>{vehicle.tag}</span>
-                </div>
-                <div className={styles.featuredInfo}>
-                  <div className={styles.featuredMeta}>
-                    <span>{vehicle.brand}</span>
-                    <span>•</span>
-                    <span>{vehicle.year}</span>
+                <Link href={`/cars/${vehicle.slug}`} className={styles.featuredCard}>
+                  <div className={styles.featuredImage}>
+                    <Image 
+                      src={vehicle.image} 
+                      alt={`${vehicle.brand} ${vehicle.model}`} 
+                      fill
+                    />
+                    <span className={styles.featuredTag}>{vehicle.tag}</span>
                   </div>
-                  <h3>{vehicle.model}</h3>
-                  <p className={styles.featuredLocation}>{vehicle.location}</p>
-                  <div className={styles.featuredFooter}>
-                    <span className={styles.featuredPrice}>{vehicle.price}</span>
-                    <Link href={`/cars/${vehicle.slug}`}>Ver detalles →</Link>
+                  <div className={styles.featuredInfo}>
+                    <div className={styles.featuredMeta}>
+                      <span>{vehicle.brand}</span>
+                      <span>•</span>
+                      <span>{vehicle.year}</span>
+                    </div>
+                    <h3>{vehicle.model}</h3>
+                    <p className={styles.featuredLocation}>{vehicle.location}</p>
+                    <div className={styles.featuredFooter}>
+                      <span className={styles.featuredPrice}>{vehicle.price}</span>
+                      <span className={styles.featuredLink}>Ver detalles →</span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
