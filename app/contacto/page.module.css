@@ -1,0 +1,254 @@
+.main {
+  min-height: 100vh;
+  padding: 140px 48px 80px;
+  background: var(--white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: var(--gray);
+  font-size: 17px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 64px;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.infoCard {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 28px;
+  transition: transform 0.3s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-4px);
+}
+
+.infoIcon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.infoCard h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--black);
+}
+
+.infoCard p {
+  color: var(--gray);
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.infoLink {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.infoLink:hover {
+  color: var(--black);
+}
+
+.formSection {
+  background: var(--cream);
+  border-radius: 24px;
+  padding: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 14px 18px;
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  color: var(--black);
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: var(--gray);
+}
+
+.formGroup select option {
+  background: var(--white);
+}
+
+.btnPrimary {
+  background: var(--black);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Syne', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 8px;
+}
+
+.btnPrimary:hover {
+  background: var(--accent);
+  color: var(--black);
+  transform: translateY(-1px);
+}
+
+.success {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.success h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+
+.success p {
+  color: var(--gray);
+  margin-bottom: 32px;
+}
+
+.backBtn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 100px;
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.backBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+@media (max-width: 900px) {
+  .main {
+    padding: 140px 24px 60px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .formSection {
+    padding: 28px 24px;
+  }
+}

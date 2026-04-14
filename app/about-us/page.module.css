@@ -1,0 +1,274 @@
+.container {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero */
+.hero {
+  background: #0e0e0e;
+  padding: 120px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  color: #c8a96e;
+}
+
+/* History */
+.history {
+  padding: 120px 0;
+  background: #f5f3ef;
+}
+
+.historyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.sectionLabel {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c8a96e;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.historyContent h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #0e0e0e;
+  margin-bottom: 32px;
+}
+
+.historyContent p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 32px;
+  background: #c8a96e;
+  color: #0e0e0e;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+  margin-top: 16px;
+}
+
+.btnPrimary:hover {
+  background: #b89a5f;
+}
+
+.historyImages {
+  position: relative;
+  padding-right: 60px;
+}
+
+.mainImage {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.mainImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.secondaryImage {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 4px solid #ffffff;
+}
+
+.secondaryImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Stats */
+.stats {
+  padding: 100px 0;
+  background: #0e0e0e;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.statValue {
+  font-family: 'Syne', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: #c8a96e;
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #888;
+}
+
+/* Values */
+.values {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionHeader h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #0e0e0e;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.valueCard {
+  padding: 40px 30px;
+  background: #f5f3ef;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.valueCard h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0e0e0e;
+  margin-bottom: 16px;
+}
+
+.valueCard p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .historyGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .historyContent h2 {
+    font-size: 36px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statValue {
+    font-size: 56px;
+  }
+
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sectionHeader h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 80px 0;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .history {
+    padding: 80px 0;
+  }
+
+  .historyContent h2 {
+    font-size: 28px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .statValue {
+    font-size: 42px;
+  }
+
+  .values {
+    padding: 80px 0;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeader h2 {
+    font-size: 28px;
+  }
+}
