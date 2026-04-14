@@ -7,9 +7,9 @@ import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
 const heroSlides = [
-  { image: "/images/hero-mazda2.jpg", alt: "Mazda 2" },
-  { image: "/images/hero-territory.jpg", alt: "Ford Territory" },
-  { image: "/images/hero-ram700.jpg", alt: "Ram 700" },
+  { image: "/images/auto1.jpg", alt: "Mazda 2" },
+  { image: "/images/auto3.jpg", alt: "Ford Territory" },
+  { image: "/images/auto4.jpg", alt: "Ram 700" },
 ];
 
 const categories = [
