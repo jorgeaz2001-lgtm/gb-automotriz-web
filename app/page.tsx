@@ -7,10 +7,11 @@ import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
 const heroSlides = [
-  { image: "/images/auto6.png", alt: "Lincoln Navigator" },
-  { image: "/images/hero.jpg", alt: "Dodge" },
-  { image: "/images/auto4.jpg", alt: "Peugeot" },
-  { image: "/images/auto1.jpg", alt: "Mazda" },
+  { image: "/images/hero-lincoln.jpg", alt: "Lincoln Navigator" },
+  { image: "/images/hero-dodge.jpg", alt: "Dodge Charger" },
+  { image: "/images/hero-mazda.jpg", alt: "Mazda" },
+  { image: "/images/hero-jeep.jpg", alt: "Jeep" },
+  { image: "/images/hero-ford.jpg", alt: "Ford Pickup" },
 ];
 
 const categories = [
