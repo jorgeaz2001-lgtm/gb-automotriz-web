@@ -7,7 +7,7 @@ const locations = [
     name: "Agencia Seminuevos Obregón",
     address: "Calle Jalisco #151 esq. con Chiapas, Fracc. San Benito, C.P. 83179, Cd. Obregón, Son.",
     phone: "644 236 4338",
-    image: "/images/hero-1.jpg",
+    image: "/images/seminuevos-app.png",
     hours: "Lunes a Viernes: 9:00 - 19:00, Sábados: 9:00 - 14:00",
     mapUrl: "https://maps.google.com/maps?q=Ford%20obregon&t=m&z=13&output=embed&iwloc=near"
   },
@@ -15,7 +15,7 @@ const locations = [
     name: "Agencia Seminuevos Los Mochis",
     address: "Blvd. Centenario #1240 Sur, Fracc. Vista Hermosa, C.P. 81278, Los Mochis, Sin.",
     phone: "668 818 1611",
-    image: "/images/hero-2.jpg",
+    image: "/images/nosotros-agencia.jpg",
     hours: "Lunes a Viernes: 9:00 - 19:00, Sábados: 9:00 - 14:00",
     mapUrl: "https://maps.google.com/maps?q=Ford%20mochis&t=m&z=14&output=embed&iwloc=near"
   },
@@ -23,7 +23,7 @@ const locations = [
     name: "Agencia Seminuevos Culiacán",
     address: "Blvd. Pedro Infante #3540, Desarrollo Urbano Tres Ríos, C.P. 80110, Culiacán, Sin.",
     phone: "667 715 1010",
-    image: "/images/showroom.jpg",
+    image: "/images/servicios-hero.jpg",
     hours: "Lunes a Viernes: 9:00 - 19:00, Sábados: 9:00 - 14:00",
     mapUrl: "https://maps.google.com/maps?q=ford%20culiacan&t=m&z=14&output=embed&iwloc=near"
   },
@@ -35,7 +35,7 @@ export default function SeminuevosPage() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroVisual}>
-          <Image src="/images/car-suv.jpg" alt="Seminuevos GB" fill className={styles.heroImg} priority />
+          <Image src="/images/seminuevos-app.png" alt="Seminuevos GB App" fill className={styles.heroImg} priority />
         </div>
         <div className={styles.heroOverlay} />
         <div className={styles.container}>

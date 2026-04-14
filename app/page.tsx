@@ -7,17 +7,17 @@ import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
 const heroSlides = [
-  { image: "/images/hero-1.jpg", alt: "Auto Premium" },
-  { image: "/images/hero-2.jpg", alt: "Deportivo de Lujo" },
-  { image: "/images/hero-3.jpg", alt: "SUV Elegante" },
-  { image: "/images/hero-4.jpg", alt: "Vehículo Deportivo" },
+  { image: "/images/auto6.png", alt: "Lincoln Navigator" },
+  { image: "/images/hero.jpg", alt: "Dodge" },
+  { image: "/images/auto4.jpg", alt: "Peugeot" },
+  { image: "/images/auto1.jpg", alt: "Mazda" },
 ];
 
 const categories = [
-  { name: "SUVs", image: "/images/car-suv.jpg", count: 24 },
-  { name: "Sedanes", image: "/images/car-sedan.jpg", count: 18 },
-  { name: "Pickups", image: "/images/car-dodge.jpg", count: 12 },
-  { name: "Eléctricos", image: "/images/car-mazda.jpg", count: 8 },
+  { name: "SUVs", image: "/images/auto4.jpg", count: 24 },
+  { name: "Sedanes", image: "/images/auto1.jpg", count: 18 },
+  { name: "Pickups", image: "/images/auto3.jpg", count: 12 },
+  { name: "Eléctricos", image: "/images/auto5.jpg", count: 8 },
 ];
 
 const featuredVehicles = [
@@ -27,37 +27,37 @@ const featuredVehicles = [
     model: "Navigator", 
     year: 2025, 
     price: "$2,599,900", 
-    image: "/images/car-lincoln.jpg",
+    image: "/images/auto6.png",
     location: "Culiacán",
     tag: "Destacado"
   },
   { 
     id: 2, 
     brand: "Dodge", 
-    model: "Charger", 
+    model: "Attitude", 
     year: 2025, 
     price: "$301,900", 
-    image: "/images/car-dodge.jpg",
+    image: "/images/hero.jpg",
     location: "Los Mochis",
     tag: "Nuevo"
   },
   { 
     id: 3, 
-    brand: "Mazda", 
-    model: "CX-5", 
+    brand: "Peugeot", 
+    model: "2008", 
     year: 2025, 
     price: "$355,900", 
-    image: "/images/car-mazda.jpg",
+    image: "/images/auto4.jpg",
     location: "Culiacán",
     tag: "Oferta"
   },
   { 
     id: 4, 
-    brand: "Ford", 
-    model: "Mustang", 
+    brand: "Mazda", 
+    model: "3 Sedán", 
     year: 2025, 
     price: "$463,900", 
-    image: "/images/car-sedan.jpg",
+    image: "/images/auto1.jpg",
     location: "Obregón",
     tag: "Popular"
   },
@@ -365,7 +365,7 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <Image 
-              src="/images/showroom.jpg" 
+              src="/images/nosotros-agencia.jpg" 
               alt="Auto a cuenta" 
               fill
             />
@@ -420,7 +420,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Image 
-                src="/images/car-lincoln.jpg" 
+                src="/images/auto6.png" 
                 alt="Financiamiento" 
                 fill
               />
@@ -481,7 +481,7 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
             >
               <Image 
-                src="/images/showroom.jpg" 
+                src="/images/nosotros-volante.jpg" 
                 alt="Conoce GB Automotriz" 
                 fill
               />
