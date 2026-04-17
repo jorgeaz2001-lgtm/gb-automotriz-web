@@ -51,17 +51,41 @@
   padding: 160px 0 120px;
 }
 
-.heroTitle {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(48px, 7vw, 80px);
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.05;
-  margin-bottom: 24px;
-  letter-spacing: -0.02em;
+.heroAccentLine {
+  width: 60px;
+  height: 3px;
+  background: #c8a96e;
+  margin-bottom: 28px;
+  transform-origin: left;
 }
 
-.heroTitle span {
+.heroTitleWrapper {
+  margin-bottom: 28px;
+}
+
+.heroTitleLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  overflow: hidden;
+  line-height: 1.05;
+}
+
+.heroTitleMain,
+.heroTitleAccent {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.heroTitleMain {
+  color: #ffffff;
+}
+
+.heroTitleAccent {
   color: #c8a96e;
 }
 
@@ -975,6 +999,30 @@
 }
 
 @media (max-width: 767px) {
+  .heroContent {
+    padding: 120px 0 80px;
+  }
+
+  .heroTitleLine {
+    gap: 0.15em;
+    line-height: 1.08;
+  }
+
+  .heroTitleMain,
+  .heroTitleAccent {
+    font-size: clamp(32px, 10vw, 48px);
+  }
+
+  .heroAccentLine {
+    width: 40px;
+    margin-bottom: 20px;
+  }
+
+  .heroSubtitle {
+    font-size: 17px;
+    max-width: 100%;
+  }
+
   .heroButtons {
     flex-direction: column;
     width: 100%;

@@ -216,30 +216,70 @@ export default function HomePage() {
 
           <div className={styles.heroContent}>
             <div className={styles.container}>
-              <motion.h1 
-                className={styles.heroTitle}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              >
-                El auto de tus sueños<br />
-                <span>te espera</span>
-              </motion.h1>
-              
-              <motion.p 
+              {/* Accent line reveal */}
+              <motion.div
+                className={styles.heroAccentLine}
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              />
+
+              {/* Main title - cinematic word reveal */}
+              <div className={styles.heroTitleWrapper}>
+                <div className={styles.heroTitleLine}>
+                  <motion.span
+                    className={styles.heroTitleMain}
+                    initial={{ y: "110%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    Fuerza
+                  </motion.span>
+                  <motion.span
+                    className={styles.heroTitleAccent}
+                    initial={{ y: "110%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    automotriz
+                  </motion.span>
+                </div>
+                <div className={styles.heroTitleLine}>
+                  <motion.span
+                    className={styles.heroTitleMain}
+                    initial={{ y: "110%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    que acelera
+                  </motion.span>
+                  <motion.span
+                    className={styles.heroTitleAccent}
+                    initial={{ y: "110%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    el futuro
+                  </motion.span>
+                </div>
+              </div>
+
+              {/* Subtitle with blur-in */}
+              <motion.p
                 className={styles.heroSubtitle}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.9, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
               >
                 Grupo Líder Automotriz en el Noroeste. Más de 90 años de experiencia.
               </motion.p>
-              
-              <motion.div 
+
+              {/* Buttons with stagger */}
+              <motion.div
                 className={styles.heroButtons}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.8, delay: 1.25, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Link href="/seminuevos" className={styles.btnPrimary}>
                   Explorar Vehículos
