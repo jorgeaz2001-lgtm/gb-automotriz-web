@@ -13,7 +13,6 @@ const vehicles = {
     year: 2025,
     price: "$389,900",
     image: "/images/auto1.jpg",
-    location: "Culiacán",
     description: "El Mazda 2 Sedán combina diseño elegante con tecnología avanzada. Perfecto para la ciudad con su eficiencia de combustible y manejo ágil.",
     features: [
       "Motor 1.5L Skyactiv",
@@ -37,7 +36,6 @@ const vehicles = {
     year: 2025,
     price: "$329,900",
     image: "/images/auto3.jpg",
-    location: "Los Mochis",
     description: "La Ram 700 es la pickup compacta más capaz del mercado. Ideal para trabajo y aventuras con su robustez y versatilidad.",
     features: [
       "Motor 1.4L Tigershark",
@@ -61,7 +59,6 @@ const vehicles = {
     year: 2025,
     price: "$529,900",
     image: "/images/auto4.jpg",
-    location: "Culiacán",
     description: "El Peugeot 3008 es un SUV de lujo con diseño francés, tecnología avanzada y confort superior. Experiencia de conducción única.",
     features: [
       "i-Cockpit Peugeot",
@@ -85,7 +82,6 @@ const vehicles = {
     year: 2025,
     price: "$349,900",
     image: "/images/auto5.jpg",
-    location: "Obregón",
     description: "El Fiat Pulse es un SUV compacto con estilo italiano, ideal para la ciudad. Diseño moderno y tecnología conectada.",
     features: [
       "Motor 1.3L Firefly",
@@ -109,7 +105,6 @@ const vehicles = {
     year: 2025,
     price: "$1,899,000",
     image: "/images/auto6.png",
-    location: "Culiacán",
     description: "La Lincoln Navigator es el pináculo del lujo americano. SUV full-size con tecnología de vanguardia y confort excepcional.",
     features: [
       "Motor V6 3.5L biturbo",
@@ -133,7 +128,6 @@ const vehicles = {
     year: 2025,
     price: "$299,900",
     image: "/images/hero.jpg",
-    location: "Los Mochis",
     description: "El Dodge Attitude es un sedán deportivo con diseño agresivo y excelente rendimiento de combustible. Perfecto para el día a día.",
     features: [
       "Motor 1.2L turbo",
@@ -157,7 +151,6 @@ const vehicles = {
     year: 2025,
     price: "$599,900",
     image: "/images/auto7.jpg",
-    location: "Culiacán",
     description: "La Ford Territory es un SUV mediano con tecnología de punta, espacio interior y eficiencia de combustible. Ideal para familias.",
     features: [
       "Motor 1.8L EcoBoost",
@@ -299,11 +292,6 @@ export default function CarDetailPage() {
                   <span>Tracción</span>
                   <p>{vehicle.specs.traccion}</p>
                 </div>
-              </div>
-
-              <div className={styles.location}>
-                <span>📍 Disponible en:</span>
-                <p>{vehicle.location}</p>
               </div>
 
               <Link href="/contacts" className={styles.btnFull}>

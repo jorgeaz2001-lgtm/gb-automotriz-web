@@ -27,7 +27,6 @@ const featuredVehicles = [
     year: 2025, 
     price: "$389,900", 
     image: "/images/auto1.jpg",
-    location: "Culiacán",
     tag: "Nuevo",
     slug: "mazda-2"
   },
@@ -38,7 +37,6 @@ const featuredVehicles = [
     year: 2025, 
     price: "$329,900", 
     image: "/images/auto3.jpg",
-    location: "Los Mochis",
     tag: "Nuevo",
     slug: "ram-700"
   },
@@ -49,7 +47,6 @@ const featuredVehicles = [
     year: 2025, 
     price: "$529,900", 
     image: "/images/auto4.jpg",
-    location: "Culiacán",
     tag: "Nuevo",
     slug: "peugeot-3008"
   },
@@ -60,7 +57,6 @@ const featuredVehicles = [
     year: 2025, 
     price: "$349,900", 
     image: "/images/auto5.jpg",
-    location: "Obregón",
     tag: "Nuevo",
     slug: "fiat-pulse"
   },
@@ -71,7 +67,6 @@ const featuredVehicles = [
     year: 2025, 
     price: "$1,899,000", 
     image: "/images/auto6.png",
-    location: "Culiacán",
     tag: "Nuevo",
     slug: "lincoln-navigator"
   },
@@ -82,9 +77,38 @@ const featuredVehicles = [
     year: 2025, 
     price: "$299,900", 
     image: "/images/hero.jpg",
-    location: "Los Mochis",
     tag: "Nuevo",
     slug: "dodge-attitude"
+  },
+  { 
+    id: 7, 
+    brand: "Ford", 
+    model: "Ford Territory", 
+    year: 2025, 
+    price: "$599,900", 
+    image: "/images/auto7.jpg",
+    tag: "Nuevo",
+    slug: "territory"
+  },
+  { 
+    id: 8, 
+    brand: "Jeep", 
+    model: "Jeep Compass", 
+    year: 2025, 
+    price: "$649,900", 
+    image: "/images/car-suv.jpg",
+    tag: "Más vendido",
+    slug: "jeep-compass"
+  },
+  { 
+    id: 9, 
+    brand: "Mazda", 
+    model: "Mazda CX-5", 
+    year: 2025, 
+    price: "$549,900", 
+    image: "/images/car-mazda.jpg",
+    tag: "Nuevo",
+    slug: "mazda-cx5"
   },
 ];
 
@@ -220,7 +244,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              Grupo Líder Automotriz en el Noroeste. Más de 50 años de experiencia.
+              Grupo Líder Automotriz en el Noroeste. Más de 90 años de experiencia.
             </motion.p>
             
             <motion.div 
@@ -367,7 +391,6 @@ export default function HomePage() {
                       <span>{vehicle.year}</span>
                     </div>
                     <h3>{vehicle.model}</h3>
-                    <p className={styles.featuredLocation}>{vehicle.location}</p>
                     <div className={styles.featuredFooter}>
                       <span className={styles.featuredPrice}>{vehicle.price}</span>
                       <span className={styles.featuredLink}>Ver detalles →</span>
@@ -455,7 +478,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Brands Section */}
+      {/* Brands Section - Premium Marquee */}
       <section className={styles.brandsSection}>
         <div className={styles.container}>
           <motion.div 
@@ -466,29 +489,73 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
           >
             <span className={styles.sectionLabel}>Marcas</span>
-            <h2 className={styles.sectionTitle}>Nuestros Socios de Confianza</h2>
+            <h2 className={styles.sectionTitle}>Las mejores marcas, en un solo lugar</h2>
+            <p className={styles.sectionSubtitle}>
+              Representamos las marcas más vendidas del mercado con el respaldo de 90 años de experiencia.
+            </p>
+          </motion.div>
+        </div>
+        
+        <div className={styles.brandsMarquee}>
+          <div className={styles.brandsTrack}>
+            {[...brands, ...brands].map((brand, index) => (
+              <div key={`${brand.name}-${index}`} className={styles.brandItem}>
+                <Image 
+                  src={brand.logo} 
+                  alt={brand.name} 
+                  width={160} 
+                  height={70}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Promotions Banner */}
+      <section className={styles.promotionsSection}>
+        <div className={styles.container}>
+          <motion.div 
+            className={styles.sectionHeaderCenter}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className={styles.sectionLabel}>Promociones</span>
+            <h2 className={styles.sectionTitle}>Bonos y beneficios exclusivos</h2>
           </motion.div>
           
           <motion.div 
-            className={styles.brandsGrid}
+            className={styles.promotionsGrid}
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {brands.map((brand) => (
+            {[
+              { brand: "Ford", promo: "Bono de $20,000", detail: "O tasa preferencial desde 9.9%", color: "#003478" },
+              { brand: "Mazda", promo: "0% de comisión", detail: "Hasta 24 meses sin intereses", color: "#101010" },
+              { brand: "Jeep", promo: "Bono $25,000", detail: "En equipamiento adicional", color: "#2a3d4d" },
+              { brand: "Ram", promo: "Hasta 60 meses", detail: "De plazo con tasas especiales", color: "#8a1c1c" },
+              { brand: "Lincoln", promo: "Concierge gratis", detail: "Servicio exclusivo por 1 año", color: "#1a1a1a" },
+              { brand: "Peugeot", promo: "Bono $15,000", detail: "+ Seguro gratis el primer año", color: "#00205b" },
+              { brand: "Fiat", promo: "Tasa desde 8.9%", detail: "La más baja del mercado", color: "#96172e" },
+              { brand: "Dodge", promo: "Bono $10,000", detail: "+ Kit de accesorios premium", color: "#b30000" },
+            ].map((promo, index) => (
               <motion.div 
-                key={brand.name} 
-                className={styles.brandItem}
+                key={index} 
+                className={styles.promotionCard}
                 variants={fadeInUp}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
               >
-                <Image 
-                  src={brand.logo} 
-                  alt={brand.name} 
-                  width={140} 
-                  height={60}
-                />
+                <div className={styles.promotionBrand} style={{ background: promo.color }}>
+                  <span>{promo.brand}</span>
+                </div>
+                <div className={styles.promotionContent}>
+                  <h3>{promo.promo}</h3>
+                  <p>{promo.detail}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -551,7 +618,7 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                 >
-                  <span>50+</span>
+                  <span>90+</span>
                   <p>Años de experiencia</p>
                 </motion.div>
               </div>

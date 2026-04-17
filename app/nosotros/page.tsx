@@ -34,7 +34,7 @@ export default function NosotrosPage() {
         <div className={styles.heroContent}>
           <span className={styles.heroEyebrow}>Nosotros</span>
           <h1>Conoce GB Automotriz</h1>
-          <p>Más de 10 años de experiencia brindando el mejor servicio automotriz del noroeste.</p>
+          <p>Más de 90 años de experiencia brindando el mejor servicio automotriz del noroeste.</p>
         </div>
       </section>
 
@@ -58,11 +58,11 @@ export default function NosotrosPage() {
               letterSpacing: "-1px",
               marginBottom: "24px",
               lineHeight: 1.1
-            }}>Grupo Líder Automotriz en el Noroeste</h2>
+            }}>Más de 90 años de trayectoria automotriz</h2>
             <p style={{ color: "var(--gray)", lineHeight: 1.7, marginBottom: "16px" }}>
-              Desde nuestros inicios, nos hemos dedicado a ofrecer la mejor experiencia de compra 
-              de vehículos en el noroeste de México. Representamos las marcas más prestigiosas del 
-              mercado con el compromiso de brindar un servicio excepcional.
+              Desde 1927, nos hemos consolidado como el grupo líder automotriz del noroeste de México.
+              Con más de 90 años de experiencia, representamos las marcas más prestigiosas del 
+              mercado con el compromiso de brindar un servicio excepcional y una experiencia de compra única.
             </p>
             <p style={{ color: "var(--gray)", lineHeight: 1.7 }}>
               Nuestro equipo de profesionales está capacitado para asesorarte en cada paso del proceso, 
