@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FloatingButtons from "@/components/FloatingButtons";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <FloatingButtons />
       </body>
     </html>
   );
