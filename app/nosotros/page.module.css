@@ -1,0 +1,234 @@
+.main {
+  min-height: 100vh;
+  background: #ffffff;
+  padding-top: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  max-width: 700px;
+  padding: 0 24px;
+}
+
+.heroEyebrow {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c8a96e;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+}
+
+.heroContent h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.heroContent p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+
+/* Historia */
+.historiaSection {
+  padding: 100px 24px;
+  background: #ffffff;
+}
+
+.historiaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.historiaText {
+  max-width: 480px;
+}
+
+.historiaLabel {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c8a96e;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.historiaText h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  color: #0e0e0e;
+}
+
+.historiaText p {
+  font-family: 'DM Sans', sans-serif;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.historiaVideoFrame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0a0a0a;
+  aspect-ratio: 4 / 3;
+}
+
+.historiaVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.historiaVideoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 100%);
+  pointer-events: none;
+}
+
+/* Valores */
+.valoresSection {
+  padding: 100px 24px;
+  background: #f5f3ef;
+}
+
+.valoresHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.valoresLabel {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c8a96e;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.valoresHeader h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #0e0e0e;
+}
+
+.valoresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.valorCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.valorCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.valorCard h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0e0e0e;
+}
+
+.valorCard p {
+  color: #888;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .historiaGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .historiaVideoFrame {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 400px;
+    height: 50vh;
+  }
+
+  .heroContent p {
+    font-size: 16px;
+  }
+
+  .historiaSection,
+  .valoresSection {
+    padding: 60px 20px;
+  }
+}
