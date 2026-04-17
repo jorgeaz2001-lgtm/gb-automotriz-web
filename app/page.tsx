@@ -133,6 +133,31 @@ const testimonials = [
     author: "Juan López",
     role: "Cliente Verificado"
   },
+  {
+    text: "Excelente atención desde que llegué. Me ayudaron a encontrar el auto perfecto para mi familia.",
+    author: "Ana Patricia Morales",
+    role: "Cliente Verificado"
+  },
+  {
+    text: "El financiamiento fue muy flexible. Me dieron opciones que se ajustaron perfecto a mi presupuesto.",
+    author: "Roberto Sánchez",
+    role: "Cliente Verificado"
+  },
+  {
+    text: "Compré mi Mazda aquí y el servicio post-venta ha sido impecable. Totalmente recomendados.",
+    author: "Diana Elena Torres",
+    role: "Cliente Verificado"
+  },
+  {
+    text: "Me sorprendió la variedad de unidades. Encontré exactamente lo que buscaba al mejor precio.",
+    author: "Fernando Castillo",
+    role: "Cliente Verificado"
+  },
+  {
+    text: "Vine a dejar mi auto a cuenta y salí con uno nuevo el mismo día. Proceso súper ágil.",
+    author: "Lucía Hernández",
+    role: "Cliente Verificado"
+  },
 ];
 
 // Animation variants
@@ -460,56 +485,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Promotions Banner */}
-      <section className={styles.promotionsSection}>
-        <div className={styles.container}>
-          <motion.div 
-            className={styles.sectionHeaderCenter}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className={styles.sectionLabel}>Promociones</span>
-            <h2 className={styles.sectionTitle}>Bonos y beneficios exclusivos</h2>
-          </motion.div>
-          
-          <motion.div 
-            className={styles.promotionsGrid}
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {[
-              { brand: "Ford", promo: "Bono de $20,000", detail: "O tasa preferencial desde 9.9%", color: "#003478" },
-              { brand: "Mazda", promo: "0% de comisión", detail: "Hasta 24 meses sin intereses", color: "#101010" },
-              { brand: "Jeep", promo: "Bono $25,000", detail: "En equipamiento adicional", color: "#2a3d4d" },
-              { brand: "Ram", promo: "Hasta 60 meses", detail: "De plazo con tasas especiales", color: "#8a1c1c" },
-              { brand: "Lincoln", promo: "Concierge gratis", detail: "Servicio exclusivo por 1 año", color: "#1a1a1a" },
-              { brand: "Peugeot", promo: "Bono $15,000", detail: "+ Seguro gratis el primer año", color: "#00205b" },
-              { brand: "Fiat", promo: "Tasa desde 8.9%", detail: "La más baja del mercado", color: "#96172e" },
-              { brand: "Dodge", promo: "Bono $10,000", detail: "+ Kit de accesorios premium", color: "#b30000" },
-            ].map((promo, index) => (
-              <motion.div 
-                key={index} 
-                className={styles.promotionCard}
-                variants={fadeInUp}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              >
-                <div className={styles.promotionBrand} style={{ background: promo.color }}>
-                  <span>{promo.brand}</span>
-                </div>
-                <div className={styles.promotionContent}>
-                  <h3>{promo.promo}</h3>
-                  <p>{promo.detail}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section className={styles.aboutSection}>
         <div className={styles.container}>
@@ -522,7 +497,7 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
             >
               <Image 
-                src="/images/nosotros-volante.jpg" 
+                src="/images/showroom.jpg" 
                 alt="Conoce GB Automotriz" 
                 fill
               />
@@ -589,33 +564,27 @@ export default function HomePage() {
             <h2 className={styles.sectionTitle}>Opiniones de Clientes</h2>
           </motion.div>
           
-          <motion.div 
-            className={styles.testimonialsGrid}
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {testimonials.map((item, index) => (
-              <motion.div 
-                key={index} 
-                className={styles.testimonialCard}
-                variants={fadeInUp}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              >
-                <p className={styles.testimonialText}>"{item.text}"</p>
-                <div className={styles.testimonialAuthor}>
-                  <div className={styles.testimonialAvatar}>
-                    {item.author.charAt(0)}
-                  </div>
-                  <div>
-                    <p className={styles.testimonialName}>{item.author}</p>
-                    <p className={styles.testimonialRole}>{item.role}</p>
+          <div className={styles.testimonialsMarquee}>
+            <div className={styles.testimonialsTrack}>
+              {[...testimonials, ...testimonials].map((item, index) => (
+                <div 
+                  key={index} 
+                  className={styles.testimonialCard}
+                >
+                  <p className={styles.testimonialText}>"{item.text}"</p>
+                  <div className={styles.testimonialAuthor}>
+                    <div className={styles.testimonialAvatar}>
+                      {item.author.charAt(0)}
+                    </div>
+                    <div>
+                      <p className={styles.testimonialName}>{item.author}</p>
+                      <p className={styles.testimonialRole}>{item.role}</p>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
