@@ -14,9 +14,25 @@ export default function AboutUsPage() {
     <main style={{ paddingTop: "120px" }}>
       {/* Hero */}
       <section className={styles.hero}>
+        <div className={styles.heroVideoWrap}>
+          <video
+            className={styles.heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+            preload="metadata"
+          >
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+          </video>
+          <div className={styles.heroOverlay} />
+        </div>
         <div className={styles.container}>
-          <h1>Sobre Nosotros</h1>
-          <p>Grupo Líder Automotriz en el Noroeste</p>
+          <div className={styles.heroContent}>
+            <h1>Sobre Nosotros</h1>
+            <p>Grupo Líder Automotriz en el Noroeste</p>
+          </div>
         </div>
       </section>
 
