@@ -177,44 +177,25 @@
   gap: 16px;
 }
 
-.btnPrimary {
+.btnWhatsApp {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 16px 32px;
-  background: #c8a96e;
-  color: #0e0e0e;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-
-.btnPrimary:hover {
-  background: #b89a5f;
-}
-
-.btnSecondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 32px;
-  background: transparent;
-  color: #0e0e0e;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  border: 2px solid #0e0e0e;
-  border-radius: 4px;
-  transition: background 0.3s, color 0.3s;
-}
-
-.btnSecondary:hover {
-  background: #0e0e0e;
+  background: #25D366;
   color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btnWhatsApp:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
 }
 
 /* Map Container */
