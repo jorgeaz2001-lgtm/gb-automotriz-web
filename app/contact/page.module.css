@@ -11,125 +11,227 @@
 
 .header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .header h1 {
+  font-family: 'Syne', sans-serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  color: #0e0e0e;
 }
 
 .header p {
   color: #666;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
+  max-width: 540px;
+  margin: 0 auto;
 }
 
-.grid {
+/* City Selector */
+.citySelector {
+  margin-bottom: 32px;
+}
+
+.citySelector label {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.cityPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cityPill {
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cityPill:hover {
+  border-color: #c8a96e;
+  color: #0e0e0e;
+}
+
+.cityPill.active {
+  background: #0e0e0e;
+  border-color: #0e0e0e;
+  color: #ffffff;
+}
+
+/* Dealership Cards */
+.dealershipGrid {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 48px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.dealershipCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.dealershipCard:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cardHeader h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0e0e0e;
+}
+
+.badge {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #c8a96e;
+  background: rgba(200, 169, 110, 0.12);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.phone {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+}
+
+.whatsappMini,
+.callMini {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.whatsappMini {
+  background: #25d366;
+  color: #ffffff;
+}
+
+.whatsappMini:hover {
+  background: #1ebd5a;
+}
+
+.callMini {
+  background: #f0f0f0;
+  color: #0e0e0e;
+}
+
+.callMini:hover {
+  background: #e4e4e4;
+}
+
+/* All Brands Section */
+.allBrands {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.allBrands h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0e0e0e;
+  margin-bottom: 6px;
+}
+
+.allBrands p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.brandGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.brandQuick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0e0e0e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.brandQuick:hover {
+  border-color: #c8a96e;
+  background: #faf8f5;
 }
 
 @media (max-width: 768px) {
-  .grid {
+  .dealershipGrid {
     grid-template-columns: 1fr;
+  }
+
+  .brandGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.infoItem {
-  padding: 24px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.infoItem strong {
-  display: block;
-  color: #dc2626;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-}
-
-.infoItem span {
-  color: #333;
-  font-size: 1.1rem;
-}
-
-.formWrapper {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.formGroup label {
-  font-weight: 500;
-  color: #333;
-}
-
-.formGroup input,
-.formGroup textarea {
-  padding: 12px 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-.formGroup input:focus,
-.formGroup textarea:focus {
-  outline: none;
-  border-color: #dc2626;
-}
-
-.submitBtn {
-  padding: 16px 32px;
-  background: #dc2626;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.submitBtn:hover {
-  background: #b91c1c;
-}
-
-.success {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.success h3 {
-  font-size: 1.5rem;
-  color: #22c55e;
-  margin-bottom: 8px;
-}
-
-.success p {
-  color: #666;
+@media (max-width: 480px) {
+  .brandGrid {
+    grid-template-columns: 1fr;
+  }
 }

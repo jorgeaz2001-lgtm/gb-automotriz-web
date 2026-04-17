@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import WhatsAppModal from "@/components/WhatsAppModal";
 import styles from "./page.module.css";
 
 const vehicles = {
@@ -174,6 +176,7 @@ export default function CarDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
   const vehicle = vehicles[slug as keyof typeof vehicles];
+  const [showModal, setShowModal] = useState(false);
 
   if (!vehicle) {
     return (
@@ -232,9 +235,12 @@ export default function CarDetailPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <Link href="/contacts" className={styles.btnPrimary}>
+              <button
+                className={styles.btnPrimary}
+                onClick={() => setShowModal(true)}
+              >
                 Cotizar ahora
-              </Link>
+              </button>
               <Link href="/seminuevos" className={styles.btnSecondary}>
                 Ver más vehículos
               </Link>
@@ -301,6 +307,13 @@ export default function CarDetailPage() {
           </div>
         </div>
       </section>
+
+      <WhatsAppModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        preselectedBrand={vehicle.brand}
+        preselectedVehicle={vehicle.model}
+      />
 
       {/* CTA */}
       <section className={styles.cta}>
