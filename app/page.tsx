@@ -490,17 +490,24 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.aboutGrid}>
             <motion.div 
-              className={styles.aboutImage}
+              className={styles.aboutVideoFrame}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
             >
-              <Image 
-                src="/images/showroom.jpg" 
-                alt="Conoce GB Automotriz" 
-                fill
-              />
+              <video
+                className={styles.aboutVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls={false}
+                preload="metadata"
+              >
+                <source src="/videos/about-video.mp4" type="video/mp4" />
+              </video>
+              <div className={styles.aboutVideoOverlay} />
             </motion.div>
             <motion.div 
               className={styles.aboutContent}
