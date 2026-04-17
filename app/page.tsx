@@ -302,60 +302,6 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Categories Section */}
-      <section className={styles.categoriesSection}>
-        <div className={styles.container}>
-          <motion.div 
-            className={styles.sectionHeaderCenter}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className={styles.sectionLabel}>Categorías de Vehículos</span>
-            <h2 className={styles.sectionTitle}>Explora por Tipo de Vehículo</h2>
-          </motion.div>
-          
-          <motion.div 
-            className={styles.categoriesGrid}
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {categories.map((cat, index) => (
-              <motion.div
-                key={cat.name}
-                variants={fadeInUp}
-              >
-                <Link href="/seminuevos" className={styles.categoryCard}>
-                  <div className={styles.categoryImage}>
-                    <Image src={cat.image} alt={cat.name} fill />
-                  </div>
-                  <div className={styles.categoryOverlay} />
-                  <div className={styles.categoryInfo}>
-                    <h3>{cat.name}</h3>
-                    <span>{cat.count} disponibles</span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-          
-          <motion.div 
-            className={styles.categoriesFooter}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
-            <Link href="/seminuevos" className={styles.btnOutline}>
-              Ver Todos los Vehículos
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Featured Vehicles */}
       <section className={styles.featuredSection}>
         <div className={styles.container}>
@@ -412,6 +358,60 @@ export default function HomePage() {
                 </Link>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section className={styles.categoriesSection}>
+        <div className={styles.container}>
+          <motion.div 
+            className={styles.sectionHeaderCenter}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className={styles.sectionLabel}>Categorías de Vehículos</span>
+            <h2 className={styles.sectionTitle}>Explora por Tipo de Vehículo</h2>
+          </motion.div>
+          
+          <motion.div 
+            className={styles.categoriesGrid}
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {categories.map((cat, index) => (
+              <motion.div
+                key={cat.name}
+                variants={fadeInUp}
+              >
+                <Link href="/seminuevos" className={styles.categoryCard}>
+                  <div className={styles.categoryImage}>
+                    <Image src={cat.image} alt={cat.name} fill />
+                  </div>
+                  <div className={styles.categoryOverlay} />
+                  <div className={styles.categoryInfo}>
+                    <h3>{cat.name}</h3>
+                    <span>{cat.count} disponibles</span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          <motion.div 
+            className={styles.categoriesFooter}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <Link href="/seminuevos" className={styles.btnOutline}>
+              Ver Todos los Vehículos
+            </Link>
           </motion.div>
         </div>
       </section>
