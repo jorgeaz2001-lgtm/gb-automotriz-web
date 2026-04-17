@@ -54,7 +54,7 @@
 .heroAccentLine {
   width: 60px;
   height: 3px;
-  background: #c8a96e;
+  background: #c8102e;
   margin-bottom: 28px;
   transform-origin: left;
 }
@@ -86,7 +86,7 @@
 }
 
 .heroTitleAccent {
-  color: #c8a96e;
+  color: #c8102e;
 }
 
 .heroSubtitle {
@@ -122,7 +122,7 @@
 }
 
 .indicator.active {
-  background: #c8a96e;
+  background: #c8102e;
   width: 60px;
 }
 
@@ -135,7 +135,7 @@
   display: inline-flex;
   align-items: center;
   padding: 16px 32px;
-  background: #c8a96e;
+  background: #c8102e;
   color: #0e0e0e;
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
@@ -146,7 +146,7 @@
 }
 
 .btnPrimary:hover {
-  background: #b89a5f;
+  background: #a00d24;
   transform: translateY(-2px);
 }
 
@@ -184,7 +184,7 @@
 }
 
 .btnWhite:hover {
-  background: #c8a96e;
+  background: #c8102e;
 }
 
 .btnOutline {
@@ -259,7 +259,7 @@
 .scrollLine {
   width: 1px;
   height: 60px;
-  background: linear-gradient(to bottom, #c8a96e, transparent);
+  background: linear-gradient(to bottom, #c8102e, transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
@@ -288,7 +288,7 @@
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #c8a96e;
+  color: #c8102e;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 12px;
@@ -316,7 +316,7 @@
 }
 
 .linkArrow:hover {
-  color: #c8a96e;
+  color: #c8102e;
 }
 
 /* Featured Section - Grid Style from Screenshot */
@@ -420,7 +420,7 @@
   font-family: 'Syne', sans-serif;
   font-size: 20px;
   font-weight: 700;
-  color: #c8a96e;
+  color: #c8102e;
 }
 
 .featuredLink {
@@ -436,7 +436,7 @@
 }
 
 .featuredLink:hover {
-  color: #c8a96e;
+  color: #c8102e;
 }
 
 /* Categories Section */
@@ -819,7 +819,7 @@
   font-family: 'Syne', sans-serif;
   font-size: 40px;
   font-weight: 700;
-  color: #c8a96e;
+  color: #c8102e;
   line-height: 1;
 }
 
@@ -838,7 +838,7 @@
 }
 
 .testimonialsSection .sectionLabel {
-  color: #c8a96e;
+  color: #c8102e;
 }
 
 .testimonialsSection .sectionTitle {
@@ -906,7 +906,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #c8a96e;
+  background: #c8102e;
   display: flex;
   align-items: center;
   justify-content: center;

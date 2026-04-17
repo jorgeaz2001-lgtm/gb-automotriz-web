@@ -4,21 +4,21 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(14, 14, 14, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .container {
   width: 100%;
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 /* Main navigation */
 .mainNav {
-  padding: 16px 0;
+  padding: 14px 0;
 }
 
 .navWrapper {
@@ -41,20 +41,21 @@
 .desktopNav {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 36px;
 }
 
 .navLink {
   font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: #0e0e0e;
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.25s ease;
+  letter-spacing: 0.02em;
 }
 
 .navLink:hover {
-  color: #c8a96e;
+  color: #ffffff;
 }
 
 /* Dropdown */
@@ -70,10 +71,21 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+.dropdownToggle:hover {
+  color: #ffffff;
 }
 
 .dropdownToggle svg {
-  transition: transform 0.2s;
+  transition: transform 0.25s ease;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .rotated {
@@ -85,39 +97,43 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 16px;
-  background: #ffffff;
+  margin-top: 18px;
+  background: rgba(20, 20, 20, 0.98);
   border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  min-width: 600px;
+  padding: 28px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  min-width: 580px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .brandsGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  gap: 14px;
 }
 
 .brandLink {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 24px;
+  gap: 10px;
+  padding: 20px 16px;
   border-radius: 12px;
-  background: #f5f3ef;
+  background: rgba(255, 255, 255, 0.03);
   text-decoration: none;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
 }
 
 .brandLink:hover {
-  background: #ede9e2;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(200, 16, 46, 0.4);
+  transform: translateY(-3px);
 }
 
 .brandLogo {
-  width: 80px;
-  height: 50px;
+  width: 70px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,33 +143,38 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .brandLink span {
   font-family: 'Syne', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  color: #0e0e0e;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* Contact button */
 .contactBtn {
   display: inline-flex;
   align-items: center;
-  padding: 12px 28px;
-  background: #c8a96e;
-  color: #0e0e0e;
+  padding: 10px 26px;
+  background: transparent;
+  color: #c8102e;
   font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.2s;
+  border-radius: 50px;
+  border: 1.5px solid #c8102e;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
 }
 
 .contactBtn:hover {
-  background: #b89a5f;
-  transform: translateY(-2px);
+  background: #c8102e;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.25);
 }
 
 /* Mobile menu button */
@@ -171,7 +192,7 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: #0e0e0e;
+  background: #ffffff;
   transition: transform 0.2s, opacity 0.2s;
 }
 
@@ -193,9 +214,9 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: #ffffff;
+  background: rgba(14, 14, 14, 0.98);
   padding: 24px 0;
-  border-bottom: 1px solid #ede9e2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .mobileNav {
@@ -209,27 +230,28 @@
   font-family: 'DM Sans', sans-serif;
   font-size: 18px;
   font-weight: 500;
-  color: #0e0e0e;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   border-radius: 8px;
   transition: background 0.2s;
 }
 
 .mobileNavLink:hover {
-  background: #f5f3ef;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .mobileContactBtn {
   margin-top: 16px;
   padding: 16px;
-  background: #c8a96e;
-  color: #0e0e0e;
+  background: transparent;
+  color: #c8102e;
   font-family: 'DM Sans', sans-serif;
   font-size: 18px;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 50px;
+  border: 1.5px solid #c8102e;
 }
 
 /* Responsive */

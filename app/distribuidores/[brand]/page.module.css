@@ -54,7 +54,7 @@
 }
 
 .backLink:hover {
-  color: #c8a96e;
+  color: #c8102e;
 }
 
 .tagline {
@@ -62,7 +62,7 @@
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #c8a96e;
+  color: #c8102e;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 12px;
@@ -121,7 +121,7 @@
 }
 
 .subBrandCard:hover span {
-  color: #c8a96e;
+  color: #c8102e;
 }
 
 .subBrandCard span {
@@ -184,7 +184,7 @@
 .badge {
   display: inline-block;
   padding: 6px 12px;
-  background: #c8a96e;
+  background: #c8102e;
   color: #0e0e0e;
   font-family: 'DM Sans', sans-serif;
   font-size: 11px;
@@ -209,7 +209,7 @@
 }
 
 .infoRow svg {
-  color: #c8a96e;
+  color: #c8102e;
   flex-shrink: 0;
 }
 

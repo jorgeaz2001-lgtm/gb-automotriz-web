@@ -170,7 +170,7 @@
 
 .cityBtn:hover {
   background: #f0f0f0;
-  border-color: #c8a96e;
+  border-color: #c8102e;
 }
 
 .brandList {
@@ -194,7 +194,7 @@
 
 .brandBtn:hover {
   background: #f0f0f0;
-  border-color: #c8a96e;
+  border-color: #c8102e;
   transform: translateX(4px);
 }
 

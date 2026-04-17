@@ -44,7 +44,7 @@
 .badge {
   display: inline-block;
   padding: 8px 16px;
-  background: #c8a96e;
+  background: #c8102e;
   color: #0e0e0e;
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
@@ -85,7 +85,7 @@
   font-family: 'Syne', sans-serif;
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 700;
-  color: #c8a96e;
+  color: #c8102e;
   margin-bottom: 32px;
 }
 
@@ -99,7 +99,7 @@
   display: inline-flex;
   align-items: center;
   padding: 16px 32px;
-  background: #c8a96e;
+  background: #c8102e;
   color: #0e0e0e;
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
@@ -110,7 +110,7 @@
 }
 
 .btnPrimary:hover {
-  background: #b89a5f;
+  background: #a00d24;
   transform: translateY(-2px);
 }
 
@@ -188,7 +188,7 @@
 
 .featuresList li:before {
   content: "✓";
-  color: #c8a96e;
+  color: #c8102e;
   font-weight: bold;
   margin-right: 12px;
 }
@@ -265,7 +265,7 @@
   justify-content: center;
   width: 100%;
   padding: 18px;
-  background: #c8a96e;
+  background: #c8102e;
   color: #0e0e0e;
   font-family: 'DM Sans', sans-serif;
   font-size: 16px;
@@ -278,7 +278,7 @@
 }
 
 .btnFull:hover {
-  background: #b89a5f;
+  background: #a00d24;
   transform: translateY(-2px);
 }
 
@@ -347,7 +347,7 @@
 }
 
 .btnWhite:hover {
-  background: #c8a96e;
+  background: #c8102e;
 }
 
 /* Responsive */

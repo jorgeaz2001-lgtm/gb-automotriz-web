@@ -65,7 +65,7 @@
 }
 
 .cityPill:hover {
-  border-color: #c8a96e;
+  border-color: #c8102e;
   color: #0e0e0e;
 }
 
@@ -116,7 +116,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #c8a96e;
+  color: #c8102e;
   background: rgba(200, 169, 110, 0.12);
   padding: 4px 10px;
   border-radius: 20px;
@@ -216,7 +216,7 @@
 }
 
 .brandQuick:hover {
-  border-color: #c8a96e;
+  border-color: #c8102e;
   background: #faf8f5;
 }
 

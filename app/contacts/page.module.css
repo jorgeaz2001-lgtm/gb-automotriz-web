@@ -23,7 +23,7 @@
 .hero p {
   font-family: 'DM Sans', sans-serif;
   font-size: 24px;
-  color: #c8a96e;
+  color: #c8102e;
 }
 
 /* Contact Info */
@@ -50,7 +50,7 @@
   width: 64px;
   height: 64px;
   margin: 0 auto 24px;
-  background: #c8a96e;
+  background: #c8102e;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -133,7 +133,7 @@
 .formGroup select:focus,
 .formGroup textarea:focus {
   outline: none;
-  border-color: #c8a96e;
+  border-color: #c8102e;
 }
 
 .checkboxGroup {
@@ -146,7 +146,7 @@
 .checkboxGroup input {
   width: 20px;
   height: 20px;
-  accent-color: #c8a96e;
+  accent-color: #c8102e;
 }
 
 .checkboxGroup label {
@@ -160,7 +160,7 @@
   align-items: center;
   justify-content: center;
   padding: 18px 48px;
-  background: #c8a96e;
+  background: #c8102e;
   color: #0e0e0e;
   font-family: 'DM Sans', sans-serif;
   font-size: 16px;
@@ -173,7 +173,7 @@
 }
 
 .submitBtn:hover:not(:disabled) {
-  background: #b89a5f;
+  background: #a00d24;
 }
 
 .submitBtn:disabled {
