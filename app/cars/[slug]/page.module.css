@@ -282,6 +282,34 @@
   transform: translateY(-2px);
 }
 
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btnWhatsApp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 18px;
+  background: #25D366;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btnWhatsApp:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+}
+
 /* CTA Section */
 .cta {
   padding: 100px 0;

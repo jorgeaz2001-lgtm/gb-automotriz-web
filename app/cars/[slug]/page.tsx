@@ -5,171 +5,229 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { MessageCircle } from "lucide-react";
 import WhatsAppModal from "@/components/WhatsAppModal";
 import styles from "./page.module.css";
 
+const MAIN_WHATSAPP = "526675032395";
+
 const vehicles = {
-  "mazda-2": {
-    brand: "Mazda",
-    model: "Mazda 2 Sedán",
-    year: 2025,
-    price: "$389,900",
-    image: "/images/auto1.jpg",
-    description: "El Mazda 2 Sedán combina diseño elegante con tecnología avanzada. Perfecto para la ciudad con su eficiencia de combustible y manejo ágil.",
+  territory: {
+    brand: "Ford",
+    model: "Ford Territory",
+    year: 2026,
+    price: "$599,000 - $798,500",
+    image: "/images/cars/territory.png",
+    description:
+      "Disfruta de viajes seguros y placenteros con tu familia gracias al amplio espacio y moderno diseño de Ford Territory 2026, SUV de Gran Tecnología que ofrece todo lo que necesitas para convertir cada viaje en una experiencia inolvidable.",
     features: [
-      "Motor 1.5L Skyactiv",
-      "Transmisión automática",
-      "Pantalla táctil 7 pulgadas",
-      "Cámara de reversa",
-      "Frenos ABS",
-      "6 bolsas de aire"
+      "Tecnología y Rendimiento en una SUV",
+      "Amplio espacio interior",
+      "Diseño moderno",
+      "Gran tecnología integrada",
+      "Seguridad avanzada",
+      "Confort para toda la familia",
     ],
     specs: {
-      motor: "1.5L 4 cilindros",
+      motor: "1.8L EcoBoost",
+      potencia: "190 HP",
+      transmision: "Automática",
+      combustible: "Gasolina",
+      traccion: "Delantera",
+    },
+  },
+  mazda2: {
+    brand: "Mazda",
+    model: "Mazda 2",
+    year: 2025,
+    price: "$301,900 - $398,900",
+    image: "/images/cars/mazda2.jpg",
+    description:
+      "El Mazda 2 combina diseño elegante con tecnología avanzada. Faros LED con función de encendido y apagado automático, rines de aleación de aluminio de 16″, sistema de monitoreo de presión de llantas (TPMS) y cámara de visión trasera.",
+    features: [
+      "Faros LED con encendido automático",
+      "Rines de aluminio de 16″",
+      "TPMS",
+      "Cámara de visión trasera",
+      "Diseño elegante",
+      "Tecnología avanzada",
+    ],
+    specs: {
+      motor: "1.5L Skyactiv",
       potencia: "110 HP",
       transmision: "Automática 6 vel",
       combustible: "Gasolina",
-      traccion: "Delantera"
-    }
+      traccion: "Delantera",
+    },
+  },
+  "p-22": {
+    brand: "DFAC",
+    model: "DFAC P22",
+    year: 2025,
+    price: "$467,900 - $517,900",
+    image: "/images/cars/p22.jpg",
+    description:
+      "Una nueva generación de líderes. Robustez y eficiencia para el trabajo diario. Combina potencia y capacidad de carga para enfrentar los retos del día a día.",
+    features: [
+      "Robustez y eficiencia",
+      "Gran capacidad de carga",
+      "Potencia confiable",
+      "Diseño funcional",
+      "Ideal para trabajo",
+      "Durabilidad garantizada",
+    ],
+    specs: {
+      motor: "2.0L Turbo Diesel",
+      potencia: "140 HP",
+      transmision: "Manual 6 vel",
+      combustible: "Diésel",
+      traccion: "4x2",
+    },
   },
   "ram-700": {
     brand: "Ram",
-    model: "Ram 700 Regular",
+    model: "Ram 700",
     year: 2025,
-    price: "$329,900",
-    image: "/images/auto3.jpg",
-    description: "La Ram 700 es la pickup compacta más capaz del mercado. Ideal para trabajo y aventuras con su robustez y versatilidad.",
+    price: "$339,900 - $517,900",
+    image: "/images/cars/ram-700.jpg",
+    description:
+      "Excelente capacidad para cualquier tipo de trabajo. Exclusivo equipamiento interior y exterior que destaca. La pickup compacta más capaz del mercado.",
     features: [
-      "Motor 1.4L Tigershark",
-      "Capacidad de carga 400kg",
-      "Caja de 1.5m",
-      "Aire acondicionado",
-      "Dirección asistida",
-      "Bluetooth"
+      "Capacidad de carga superior",
+      "Equipamiento exclusivo",
+      "Diseño robusto",
+      "Versatilidad total",
+      "Confort interior",
+      "Tecnología conectada",
     ],
     specs: {
-      motor: "1.4L 4 cilindros",
+      motor: "1.4L Tigershark",
       potencia: "85 HP",
       transmision: "Manual 5 vel",
       combustible: "Gasolina",
-      traccion: "Delantera"
-    }
+      traccion: "Delantera",
+    },
   },
-  "peugeot-3008": {
+  "peugeot-2009": {
     brand: "Peugeot",
-    model: "Peugeot 3008",
+    model: "Peugeot 2008",
     year: 2025,
-    price: "$529,900",
-    image: "/images/auto4.jpg",
-    description: "El Peugeot 3008 es un SUV de lujo con diseño francés, tecnología avanzada y confort superior. Experiencia de conducción única.",
+    price: "$463,900 - $545,900",
+    image: "/images/cars/peugeot-2008.jpg",
+    description:
+      "La nueva SUV PEUGEOT 2008 redefine sin esfuerzo los códigos estéticos del segmento, con un estilo contundente: nuevas luces LED, tanto delanteras como traseras, una nueva y amplia parrilla que enmarca el nuevo escudo de PEUGEOT y nuevos rines de aluminio.",
     features: [
-      "i-Cockpit Peugeot",
-      "Pantalla 10 pulgadas",
-      "Asientos de piel",
-      "Techo panorámico",
-      "Asistente de estacionamiento",
- "Frenos de disco"
+      "Luces LED delanteras y traseras",
+      "Parrilla amplia con escudo PEUGEOT",
+      "Rines de aluminio de 17″",
+      "Motor turbo",
+      "SUV compacta moderna",
+      "Diseño contundente",
     ],
     specs: {
-      motor: "1.6L Turbo",
-      potencia: "165 HP",
+      motor: "1.2L Turbo",
+      potencia: "130 HP",
       transmision: "Automática 6 vel",
       combustible: "Gasolina",
-      traccion: "Delantera"
-    }
+      traccion: "Delantera",
+    },
   },
-  "fiat-pulse": {
+  "pulse-fiat": {
     brand: "Fiat",
     model: "Fiat Pulse",
     year: 2025,
-    price: "$349,900",
-    image: "/images/auto5.jpg",
-    description: "El Fiat Pulse es un SUV compacto con estilo italiano, ideal para la ciudad. Diseño moderno y tecnología conectada.",
+    price: "$355,900 - $432,900",
+    image: "/images/cars/pulse-fiat.jpg",
+    description:
+      "Conoce el nuevo SUV de Fiat® y acelera tu pulso con su auténtico diseño italiano, dinámico y moderno, característico de Fiat® con el que seguro robarás miradas.",
     features: [
-      "Motor 1.3L Firefly",
-      "Pantalla 8.4 pulgadas",
-      "Apple CarPlay / Android Auto",
-      "Cámara de reversa",
-      "Control de estabilidad",
-      "6 bolsas de aire"
+      "Diseño italiano auténtico",
+      "Dinámico y moderno",
+      "Tecnología conectada",
+      "Estilo único",
+      "Versatilidad urbana",
+      "Confort superior",
     ],
     specs: {
-      motor: "1.3L 4 cilindros",
+      motor: "1.3L Firefly",
       potencia: "101 HP",
       transmision: "CVT",
       combustible: "Gasolina",
-      traccion: "Delantera"
-    }
+      traccion: "Delantera",
+    },
   },
-  "lincoln-navigator": {
+  navigator: {
     brand: "Lincoln",
     model: "Lincoln Navigator",
     year: 2025,
-    price: "$1,899,000",
-    image: "/images/auto6.png",
-    description: "La Lincoln Navigator es el pináculo del lujo americano. SUV full-size con tecnología de vanguardia y confort excepcional.",
+    price: "$2,599,900 - $3,079,900",
+    image: "/images/cars/navigator.png",
+    description:
+      "Conoce la totalmente nueva Lincoln Navigator 2025, la camioneta que redefine el lujo con su diseño audaz y un interior que cautiva. Su tecnología Lincoln Digital Experience, junto a su pantalla panorámica de 48 pulgadas y funciones como Lincoln Rejuvenate transforman cada viaje en una experiencia de spa en movimiento.",
     features: [
-      "Motor V6 3.5L biturbo",
-      "Asientos de piel Bridge of Weir",
+      "Pantalla panorámica 48″",
+      "Lincoln Digital Experience",
+      "Lincoln Rejuvenate",
+      "Asientos de piel premium",
       "Sistema Revel Ultima 3D",
       "Lincoln Co-Pilot360",
-      "Suspensión adaptativa",
- "Tracción 4x4"
     ],
     specs: {
       motor: "3.5L V6 Biturbo",
       potencia: "450 HP",
       transmision: "Automática 10 vel",
       combustible: "Gasolina",
-      traccion: "4x4"
-    }
+      traccion: "4x4",
+    },
   },
-  "dodge-attitude": {
+  "x-70": {
+    brand: "Jetour",
+    model: "Jetour X70",
+    year: 2025,
+    price: "$439,900",
+    image: "/images/cars/x70.jpeg",
+    description:
+      "Conducción segura y disfrute de la vida. Alto Factor de Seguridad EPB+AUTOHOLD. Motor con garantía prolongada. La suspensión independiente multibrazo con barra estabilizadora mejora la estabilidad de conducción.",
+    features: [
+      "EPB + AUTOHOLD",
+      "Motor con garantía prolongada",
+      "Suspensión independiente multibrazo",
+      "Barra estabilizadora",
+      "Alta seguridad",
+      "Estabilidad de conducción",
+    ],
+    specs: {
+      motor: "1.5L Turbo",
+      potencia: "156 HP",
+      transmision: "Automática 6 vel",
+      combustible: "Gasolina",
+      traccion: "Delantera",
+    },
+  },
+  attitude: {
     brand: "Dodge",
     model: "Dodge Attitude",
     year: 2025,
-    price: "$299,900",
-    image: "/images/hero.jpg",
-    description: "El Dodge Attitude es un sedán deportivo con diseño agresivo y excelente rendimiento de combustible. Perfecto para el día a día.",
+    price: "$398,900",
+    image: "/images/cars/attitude.jpg",
+    description:
+      "El nuevo DODGE ATTITUDE R/T cuenta con un imponente diseño frontal y lateral, con líneas de carácter robustas, que hablan de su atractiva potencia. Diseño deportivo con líneas agresivas y contornos dinámicos.",
     features: [
-      "Motor 1.2L turbo",
-      "Pantalla 8 pulgadas",
-      "CarPlay / Android Auto",
-      "Cámara de reversa",
-      "Frenos ABS + EBD",
-      "6 bolsas de aire"
+      "Diseño deportivo R/T",
+      "Líneas agresivas",
+      "Contornos dinámicos",
+      "Imponente diseño frontal",
+      "Carácter robusto",
+      "Potencia atractiva",
     ],
     specs: {
-      motor: "1.2L 3 cilindros turbo",
+      motor: "1.2L Turbo",
       potencia: "116 HP",
       transmision: "CVT",
       combustible: "Gasolina",
-      traccion: "Delantera"
-    }
+      traccion: "Delantera",
+    },
   },
-  "territory": {
-    brand: "Ford",
-    model: "Ford Territory",
-    year: 2025,
-    price: "$599,900",
-    image: "/images/auto7.jpg",
-    description: "La Ford Territory es un SUV mediano con tecnología de punta, espacio interior y eficiencia de combustible. Ideal para familias.",
-    features: [
-      "Motor 1.8L EcoBoost",
-      "Pantalla táctil 10 pulgadas",
-      "SYNC 4",
-      "Asistente de estacionamiento",
-      "Control crucero adaptativo",
-      "Tracción delantera"
-    ],
-    specs: {
-      motor: "1.8L 4 cilindros turbo",
-      potencia: "190 HP",
-      transmision: "Automática CVT",
-      combustible: "Gasolina",
-      traccion: "Delantera"
-    }
-  }
 };
 
 export default function CarDetailPage() {
@@ -177,6 +235,10 @@ export default function CarDetailPage() {
   const slug = params.slug as string;
   const vehicle = vehicles[slug as keyof typeof vehicles];
   const [showModal, setShowModal] = useState(false);
+
+  const whatsappLink = `https://wa.me/${MAIN_WHATSAPP}?text=${encodeURIComponent(
+    `Hola, estoy interesado en el ${vehicle?.model || "vehículo"}. ¿Me pueden brindar más información?`
+  )}`;
 
   if (!vehicle) {
     return (
@@ -199,21 +261,21 @@ export default function CarDetailPage() {
         </div>
         <div className={styles.heroContent}>
           <div className={styles.container}>
-            <motion.span 
+            <motion.span
               className={styles.brand}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               {vehicle.brand}
             </motion.span>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
               {vehicle.model}
             </motion.h1>
-            <motion.p 
+            <motion.p
               className={styles.year}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -221,7 +283,7 @@ export default function CarDetailPage() {
             >
               {vehicle.year}
             </motion.p>
-            <motion.p 
+            <motion.p
               className={styles.price}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -253,7 +315,7 @@ export default function CarDetailPage() {
       <section className={styles.details}>
         <div className={styles.container}>
           <div className={styles.grid}>
-            <motion.div 
+            <motion.div
               className={styles.info}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -261,7 +323,7 @@ export default function CarDetailPage() {
             >
               <h2>Descripción</h2>
               <p>{vehicle.description}</p>
-              
+
               <h3>Características</h3>
               <ul className={styles.features}>
                 {vehicle.features.map((feature, index) => (
@@ -270,7 +332,7 @@ export default function CarDetailPage() {
               </ul>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className={styles.specs}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -300,9 +362,20 @@ export default function CarDetailPage() {
                 </div>
               </div>
 
-              <Link href="/contacts" className={styles.btnFull}>
-                Solicitar información
-              </Link>
+              <div className={styles.actionButtons}>
+                <Link href="/contacts" className={styles.btnFull}>
+                  Solicitar información
+                </Link>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.btnWhatsApp}
+                >
+                  <MessageCircle size={18} />
+                  WhatsApp
+                </a>
+              </div>
             </motion.div>
           </div>
         </div>

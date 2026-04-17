@@ -14,95 +14,95 @@ const categories = [
 ];
 
 const featuredVehicles = [
-  { 
-    id: 1, 
-    brand: "Mazda", 
-    model: "Mazda 2 Sedán", 
-    year: 2025, 
-    price: "$389,900", 
-    image: "/images/auto1.jpg",
-    tag: "Nuevo",
-    slug: "mazda-2"
-  },
-  { 
-    id: 2, 
-    brand: "Ram", 
-    model: "Ram 700 Regular", 
-    year: 2025, 
-    price: "$329,900", 
-    image: "/images/auto3.jpg",
-    tag: "Nuevo",
-    slug: "ram-700"
-  },
-  { 
-    id: 3, 
-    brand: "Peugeot", 
-    model: "Peugeot 3008", 
-    year: 2025, 
-    price: "$529,900", 
-    image: "/images/auto4.jpg",
-    tag: "Nuevo",
-    slug: "peugeot-3008"
-  },
-  { 
-    id: 4, 
-    brand: "Fiat", 
-    model: "Fiat Pulse", 
-    year: 2025, 
-    price: "$349,900", 
-    image: "/images/auto5.jpg",
-    tag: "Nuevo",
-    slug: "fiat-pulse"
-  },
-  { 
-    id: 5, 
-    brand: "Lincoln", 
-    model: "Lincoln Navigator", 
-    year: 2025, 
-    price: "$1,899,000", 
-    image: "/images/auto6.png",
-    tag: "Nuevo",
-    slug: "lincoln-navigator"
-  },
-  { 
-    id: 6, 
-    brand: "Dodge", 
-    model: "Dodge Attitude", 
-    year: 2025, 
-    price: "$299,900", 
-    image: "/images/hero.jpg",
-    tag: "Nuevo",
-    slug: "dodge-attitude"
-  },
-  { 
-    id: 7, 
-    brand: "Ford", 
-    model: "Ford Territory", 
-    year: 2025, 
-    price: "$599,900", 
-    image: "/images/auto7.jpg",
+  {
+    id: 1,
+    brand: "Ford",
+    model: "Ford Territory",
+    year: 2026,
+    price: "$599,000",
+    image: "/images/cars/territory.png",
     tag: "Nuevo",
     slug: "territory"
   },
-  { 
-    id: 8, 
-    brand: "Jeep", 
-    model: "Jeep Compass", 
-    year: 2025, 
-    price: "$649,900", 
-    image: "/images/car-suv.jpg",
-    tag: "Más vendido",
-    slug: "jeep-compass"
-  },
-  { 
-    id: 9, 
-    brand: "Mazda", 
-    model: "Mazda CX-5", 
-    year: 2025, 
-    price: "$549,900", 
-    image: "/images/car-mazda.jpg",
+  {
+    id: 2,
+    brand: "Mazda",
+    model: "Mazda 2",
+    year: 2025,
+    price: "$301,900",
+    image: "/images/cars/mazda2.jpg",
     tag: "Nuevo",
-    slug: "mazda-cx5"
+    slug: "mazda2"
+  },
+  {
+    id: 3,
+    brand: "DFAC",
+    model: "DFAC P22",
+    year: 2025,
+    price: "$467,900",
+    image: "/images/cars/p22.jpg",
+    tag: "Nuevo",
+    slug: "p-22"
+  },
+  {
+    id: 4,
+    brand: "Ram",
+    model: "Ram 700",
+    year: 2025,
+    price: "$339,900",
+    image: "/images/cars/ram-700.jpg",
+    tag: "Nuevo",
+    slug: "ram-700"
+  },
+  {
+    id: 5,
+    brand: "Peugeot",
+    model: "Peugeot 2008",
+    year: 2025,
+    price: "$463,900",
+    image: "/images/cars/peugeot-2008.jpg",
+    tag: "Nuevo",
+    slug: "peugeot-2009"
+  },
+  {
+    id: 6,
+    brand: "Fiat",
+    model: "Fiat Pulse",
+    year: 2025,
+    price: "$355,900",
+    image: "/images/cars/pulse-fiat.jpg",
+    tag: "Nuevo",
+    slug: "pulse-fiat"
+  },
+  {
+    id: 7,
+    brand: "Lincoln",
+    model: "Lincoln Navigator",
+    year: 2025,
+    price: "$2,599,900",
+    image: "/images/cars/navigator.png",
+    tag: "Nuevo",
+    slug: "navigator"
+  },
+  {
+    id: 8,
+    brand: "Jetour",
+    model: "Jetour X70",
+    year: 2025,
+    price: "$439,900",
+    image: "/images/cars/x70.jpeg",
+    tag: "Nuevo",
+    slug: "x-70"
+  },
+  {
+    id: 9,
+    brand: "Dodge",
+    model: "Dodge Attitude",
+    year: 2025,
+    price: "$398,900",
+    image: "/images/cars/attitude.jpg",
+    tag: "Nuevo",
+    slug: "attitude"
   },
 ];
 
