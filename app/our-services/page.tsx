@@ -74,6 +74,18 @@ export default function ServicesPage() {
     <main style={{ paddingTop: "120px" }}>
       {/* Hero */}
       <section className={styles.hero}>
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls={false}
+          preload="metadata"
+        >
+          <source src="/videos/servicio-hero.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.heroOverlay} />
         <div className={styles.container}>
           <h1>Servicios del Grupo</h1>
           <p>Con atención personalizada en cada sucursal.</p>
