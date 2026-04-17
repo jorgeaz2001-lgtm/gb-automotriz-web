@@ -43,13 +43,10 @@ export default function AboutUsPage() {
               </p>
               <Link href="/contacts" className={styles.btnPrimary}>Contactar</Link>
             </div>
-            <div className={styles.historyImages}>
-              <div className={styles.mainImage}>
-                <Image src="/images/nosotros-agencia.jpg" alt="GB Automotriz Agencia" width={500} height={350} />
-              </div>
-              <div className={styles.secondaryImage}>
-                <Image src="/images/nosotros-volante.jpg" alt="Volante GB Automotriz" width={300} height={200} />
-              </div>
+            <div className={styles.videoContainer}>
+              <video autoPlay loop muted playsInline poster="/images/nosotros-agencia.jpg">
+                <source src="/videos/about-video.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
