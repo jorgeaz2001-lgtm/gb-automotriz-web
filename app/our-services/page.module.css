@@ -51,16 +51,12 @@
 .serviceImage {
   border-radius: 12px;
   overflow: hidden;
-}
-
-.serviceImage {
   background: #ffffff;
   padding: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 350px;
-  border-radius: 12px;
 }
 
 .serviceImage img {
@@ -99,53 +95,87 @@
   font-size: 18px;
   line-height: 1.7;
   color: #666;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
-.locations {
-  margin-bottom: 32px;
+/* Sucursales */
+.sucursales {
+  margin-top: 8px;
 }
 
-.locations > span {
+.sucursalesLabel {
   display: block;
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: #0e0e0e;
-  margin-bottom: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
 }
 
-.locationTags {
+.sucursalesList {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 10px;
 }
 
-.locationTag {
-  padding: 8px 16px;
-  background: #ede9e2;
-  border-radius: 20px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+.sucursalCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.sucursalCard:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.sucursalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sucursalInfo strong {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
   color: #0e0e0e;
 }
 
-.btnPrimary {
+.sucursalInfo span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #888;
+}
+
+.whatsappBtn {
   display: inline-flex;
   align-items: center;
-  padding: 16px 32px;
-  background: #c8a96e;
-  color: #0e0e0e;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #25d366;
+  color: #ffffff;
   font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.btnPrimary:hover {
-  background: #b89a5f;
+.whatsappBtn:hover {
+  background: #1ebd5a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
 /* CTA */
@@ -160,25 +190,13 @@
   font-size: 48px;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
 }
 
-.btnWhite {
-  display: inline-flex;
-  align-items: center;
-  padding: 18px 40px;
-  background: #ffffff;
-  color: #0e0e0e;
+.cta p {
   font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-
-.btnWhite:hover {
-  background: #c8a96e;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Responsive */
@@ -228,6 +246,16 @@
 
   .serviceContent h2 {
     font-size: 28px;
+  }
+
+  .sucursalCard {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .whatsappBtn {
+    justify-content: center;
   }
 
   .cta {
