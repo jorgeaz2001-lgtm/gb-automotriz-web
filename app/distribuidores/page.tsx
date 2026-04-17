@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import styles from "./page.module.css";
 
 const brands = [
@@ -58,28 +55,16 @@ export default function DistribuidoresPage() {
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <div className={styles.container}>
-            <motion.span
-              className={styles.heroEyebrow}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
+            <span className={styles.heroEyebrow}>
               Distribuidores Autorizados
-            </motion.span>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-            >
+            </span>
+            <h1>
               Nuestras marcas
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
+            </h1>
+            <p>
               Somos distribuidores autorizados de las principales marcas automotrices
               en el noroeste de México. Más de 90 años de experiencia nos respaldan.
-            </motion.p>
+            </p>
           </div>
         </div>
       </section>
@@ -88,18 +73,12 @@ export default function DistribuidoresPage() {
       <section className={styles.gridSection}>
         <div className={styles.container}>
           <div className={styles.cardsGrid}>
-            {brands.map((brand, index) => (
-              <motion.div
+            {brands.map((brand) => (
+              <Link
                 key={brand.slug}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ delay: index * 0.08, duration: 0.5 }}
+                href={`/distribuidores/${brand.slug}`}
+                className={styles.card}
               >
-                <Link
-                  href={`/distribuidores/${brand.slug}`}
-                  className={styles.card}
-                >
                   <div className={styles.cardImage}>
                     <Image
                       src={brand.image}
@@ -121,8 +100,7 @@ export default function DistribuidoresPage() {
                     </div>
                     <span className={styles.cta}>Ver sucursales →</span>
                   </div>
-                </Link>
-              </motion.div>
+              </Link>
             ))}
           </div>
         </div>
