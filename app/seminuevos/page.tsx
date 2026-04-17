@@ -34,9 +34,17 @@ export default function SeminuevosPage() {
     <main style={{ paddingTop: "120px" }}>
       {/* Hero */}
       <section className={styles.hero}>
-        <div className={styles.heroVisual}>
-          <Image src="/images/seminuevos-app.png" alt="Seminuevos GB App" fill className={styles.heroImg} priority />
-        </div>
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls={false}
+          preload="metadata"
+        >
+          <source src="/videos/seminuevos-hero.mp4" type="video/mp4" />
+        </video>
         <div className={styles.heroOverlay} />
         <div className={styles.container}>
           <div className={styles.heroContent}>
