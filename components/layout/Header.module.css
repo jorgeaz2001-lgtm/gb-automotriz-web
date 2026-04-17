@@ -70,7 +70,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 8px 0;
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -94,16 +94,16 @@
 
 .dropdownMenu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 18px;
   background: rgba(20, 20, 20, 0.98);
   border-radius: 16px;
   padding: 28px;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
   min-width: 580px;
   border: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 2000;
 }
 
 .brandsGrid {

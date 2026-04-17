@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
@@ -21,6 +21,24 @@ const brands = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    if (dropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownOpen]);
 
   return (
     <header className={styles.header}>
@@ -45,11 +63,15 @@ export default function Header() {
               
               {/* Distribuidores dropdown */}
               <div 
+                ref={dropdownRef}
                 className={styles.dropdown}
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
               >
-                <button className={`${styles.navLink} ${styles.dropdownToggle}`}>
+                <button 
+                  type="button"
+                  className={`${styles.navLink} ${styles.dropdownToggle}`}
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  aria-expanded={dropdownOpen}
+                >
                   Distribuidores
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
@@ -100,6 +122,7 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <button 
+              type="button"
               className={styles.mobileMenuBtn}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
