@@ -6,89 +6,49 @@
   padding: 0 24px;
 }
 
-/* Hero Section - Full height with animated slider */
+/* Hero Section - Cinematic Video */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 800px;
+  overflow: hidden;
+}
+
+.cinematicFrame {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  background: #0a0a0a;
 }
 
-.heroSlider {
+.cinematicVideo {
   position: absolute;
   inset: 0;
-  z-index: 0;
-}
-
-.heroSlide {
-  position: absolute;
-  inset: 0;
-}
-
-.heroSlideInner {
-  position: relative;
   width: 100%;
   height: 100%;
-  animation: kenBurns 8s ease-out infinite;
-}
-
-@keyframes kenBurns {
-  0% {
-    transform: scale(1.1) translate(0, 0);
-  }
-  50% {
-    transform: scale(1.2) translate(-2%, -1%);
-  }
-  100% {
-    transform: scale(1.1) translate(0, 0);
-  }
-}
-
-.heroImage {
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  transform: scale(calc(1 + var(--scroll-progress, 0) * 0.04));
+  transition: transform 0.25s ease-out;
 }
 
-.motionOverlay {
+.cinematicOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    45deg,
-    rgba(0,0,0,0.5) 0%,
-    rgba(0,0,0,0.2) 50%,
-    rgba(0,0,0,0.4) 100%
-  );
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.35) 100%);
+  opacity: calc(1 - var(--scroll-progress, 0) * 0.75);
+  transition: opacity 0.22s linear;
   z-index: 1;
-}
-
-/* Floating particles */
-.particles {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.particle {
-  position: absolute;
-  background: rgba(200, 169, 110, 0.4);
-  border-radius: 50%;
 }
 
 .heroContent {
   position: relative;
   z-index: 3;
   width: 100%;
+  opacity: calc(1 - var(--scroll-progress, 0) * 1.1);
+  transform: translateY(calc(var(--scroll-progress, 0) * 20px));
+  transition: opacity 0.22s linear, transform 0.24s ease-out;
+  padding: 160px 0 120px;
 }
 
 .heroTitle {

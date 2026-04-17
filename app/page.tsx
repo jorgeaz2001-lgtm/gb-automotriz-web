@@ -3,14 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type CSSProperties } from "react";
 import styles from "./page.module.css";
-
-const heroSlides = [
-  { image: "/images/auto1.jpg", alt: "Mazda 2" },
-  { image: "/images/auto3.jpg", alt: "Ford Territory" },
-  { image: "/images/auto4.jpg", alt: "Ram 700" },
-];
 
 const categories = [
   { name: "SUVs", image: "/images/auto4.jpg", count: 24 },
@@ -157,125 +151,79 @@ const staggerContainer = {
 };
 
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Auto-advance slides
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
-    return () => clearInterval(timer);
+    const handleScroll = () => {
+      const distance = Math.max(window.innerHeight * 0.75, 1);
+      const rawProgress = window.scrollY / distance;
+      const next = Math.min(Math.max(rawProgress, 0), 0.9);
+      setScrollProgress(next);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const cinematicStyle = {
+    "--scroll-progress": scrollProgress,
+  } as CSSProperties;
 
   return (
     <main>
-      {/* Hero Section with Moving Background */}
-      <section className={styles.hero}>
-        {/* Animated Background Slider */}
-        <div className={styles.heroSlider}>
-          {heroSlides.map((slide, index) => (
-            <motion.div
-              key={index}
-              className={styles.heroSlide}
-              initial={false}
-              animate={{
-                opacity: index === currentSlide ? 1 : 0,
-                scale: index === currentSlide ? 1 : 1.1,
-              }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className={styles.heroSlideInner}>
-                <Image 
-                  src={slide.image} 
-                  alt={slide.alt}
-                  fill 
-                  className={styles.heroImage}
-                  priority={index === 0}
-                />
-                {/* Motion blur overlay effect */}
-                <div className={styles.motionOverlay} />
-              </div>
-            </motion.div>
-          ))}
-          {/* Gradient overlay */}
-          <div className={styles.heroOverlay} />
-        </div>
-        
-        {/* Floating particles effect */}
-        <div className={styles.particles}>
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={styles.particle}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: Math.random() * 4 + 2,
-                height: Math.random() * 4 + 2,
-              }}
-              animate={{
-                y: [0, -100, 0],
-                opacity: [0, 0.5, 0],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 4,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
-        
-        <div className={styles.heroContent}>
-          <div className={styles.container}>
-            <motion.h1 
-              className={styles.heroTitle}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              El auto de tus sueños<br />
-              <span>te espera</span>
-            </motion.h1>
-            
-            <motion.p 
-              className={styles.heroSubtitle}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Grupo Líder Automotriz en el Noroeste. Más de 90 años de experiencia.
-            </motion.p>
-            
-            <motion.div 
-              className={styles.heroButtons}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Link href="/seminuevos" className={styles.btnPrimary}>
-                Explorar Vehículos
-              </Link>
-              <Link href="/contacts" className={styles.btnSecondary}>
-                Buscar Vehículos
-              </Link>
-            </motion.div>
+      {/* Hero Section with Cinematic Video */}
+      <section className={styles.hero} style={cinematicStyle}>
+        <div className={styles.cinematicFrame}>
+          <video
+            className={styles.cinematicVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+            preload="metadata"
+          >
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+          </video>
 
-            {/* Slide indicators */}
-            <motion.div 
-              className={styles.slideIndicators}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              {heroSlides.map((_, index) => (
-                <button
-                  key={index}
-                  className={`${styles.indicator} ${index === currentSlide ? styles.active : ''}`}
-                  onClick={() => setCurrentSlide(index)}
-                />
-              ))}
-            </motion.div>
+          <div className={styles.cinematicOverlay} />
+
+          <div className={styles.heroContent}>
+            <div className={styles.container}>
+              <motion.h1 
+                className={styles.heroTitle}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
+                El auto de tus sueños<br />
+                <span>te espera</span>
+              </motion.h1>
+              
+              <motion.p 
+                className={styles.heroSubtitle}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                Grupo Líder Automotriz en el Noroeste. Más de 90 años de experiencia.
+              </motion.p>
+              
+              <motion.div 
+                className={styles.heroButtons}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Link href="/seminuevos" className={styles.btnPrimary}>
+                  Explorar Vehículos
+                </Link>
+                <Link href="/contacts" className={styles.btnSecondary}>
+                  Buscar Vehículos
+                </Link>
+              </motion.div>
+            </div>
           </div>
         </div>
 
