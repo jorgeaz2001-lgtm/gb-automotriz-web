@@ -108,14 +108,14 @@ const featuredVehicles = [
 ];
 
 const brands = [
-  { name: "Ford", logo: "/images/brands/ford.png" },
-  { name: "Lincoln", logo: "/images/brands/lincoln.png" },
-  { name: "Mazda", logo: "/images/brands/mazda.png" },
-  { name: "Peugeot", logo: "/images/brands/peugeot.png" },
-  { name: "Ram", logo: "/images/brands/ram.png" },
-  { name: "Dodge", logo: "/images/brands/dodge.png" },
-  { name: "Jeep", logo: "/images/brands/jeep.png" },
-  { name: "Fiat", logo: "/images/brands/fiat.png" },
+  { name: "Ford", logo: "/images/brands/ford.png", slug: "ford" },
+  { name: "Lincoln", logo: "/images/brands/lincoln.png", slug: "lincoln" },
+  { name: "Mazda", logo: "/images/brands/mazda.png", slug: "mazda" },
+  { name: "Peugeot", logo: "/images/brands/peugeot.png", slug: "stellantis" },
+  { name: "Ram", logo: "/images/brands/ram.png", slug: "stellantis" },
+  { name: "Dodge", logo: "/images/brands/dodge.png", slug: "stellantis" },
+  { name: "Jeep", logo: "/images/brands/jeep.png", slug: "stellantis" },
+  { name: "Fiat", logo: "/images/brands/fiat.png", slug: "stellantis" },
 ];
 
 const testimonials = [
@@ -516,14 +516,18 @@ export default function HomePage() {
         <div className={styles.brandsMarquee}>
           <div className={styles.brandsTrack}>
             {[...brands, ...brands].map((brand, index) => (
-              <div key={`${brand.name}-${index}`} className={styles.brandItem}>
-                <Image 
-                  src={brand.logo} 
-                  alt={brand.name} 
-                  width={160} 
+              <Link
+                key={`${brand.name}-${index}`}
+                href={`/distribuidores/${brand.slug}`}
+                className={styles.brandItem}
+              >
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={160}
                   height={70}
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </div>
