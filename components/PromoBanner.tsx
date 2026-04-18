@@ -90,7 +90,7 @@ export default function PromoBanner() {
                   src={banners[current].image}
                   alt={`Promoción ${current + 1}`}
                   fill
-                  style={{ objectFit: "cover" }}
+                  className={styles.bannerImage}
                   priority
                 />
               </Link>
