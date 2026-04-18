@@ -55,7 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0e0e0e;
+  color: #ffffff;
 }
 
 .infoCard h3 {
@@ -80,7 +80,7 @@
 }
 
 .formWrapper {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   background: #f5f3ef;
   padding: 60px;
@@ -126,7 +126,8 @@
   border-radius: 8px;
   background: #ffffff;
   color: #0e0e0e;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
 }
 
 .formGroup input:focus,
@@ -134,8 +135,29 @@
 .formGroup textarea:focus {
   outline: none;
   border-color: #c8102e;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
 }
 
+.formGroup input:disabled,
+.formGroup select:disabled {
+  background: #e9e9e9;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #aaa;
+}
+
+/* Date/time inputs */
+.formGroup input[type="date"],
+.formGroup input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Checkbox */
 .checkboxGroup {
   display: flex;
   align-items: center;
@@ -147,6 +169,7 @@
   width: 20px;
   height: 20px;
   accent-color: #c8102e;
+  flex-shrink: 0;
 }
 
 .checkboxGroup label {
@@ -155,25 +178,27 @@
   color: #0e0e0e;
 }
 
+/* Submit button */
 .submitBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 18px 48px;
   background: #c8102e;
-  color: #0e0e0e;
+  color: #ffffff;
   font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
   width: 100%;
 }
 
 .submitBtn:hover:not(:disabled) {
   background: #a00d24;
+  transform: translateY(-1px);
 }
 
 .submitBtn:disabled {
@@ -193,11 +218,6 @@
 
   .formWrapper {
     padding: 40px;
-  }
-
-  .formRow {
-    grid-template-columns: 1fr;
-    gap: 0;
   }
 }
 
@@ -219,10 +239,15 @@
   }
 
   .formWrapper {
-    padding: 30px;
+    padding: 30px 20px;
   }
 
   .formWrapper h2 {
     font-size: 28px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }
