@@ -285,7 +285,7 @@ export default function HomePage() {
                 <Link href="/seminuevos" className={styles.btnPrimary}>
                   Explorar Vehículos
                 </Link>
-                <Link href="/contacts" className={styles.btnSecondary}>
+                <Link href="/distribuidores" className={styles.btnSecondary}>
                   Buscar Vehículos
                 </Link>
               </motion.div>
