@@ -9,19 +9,19 @@ import styles from "./PromoBanner.module.css";
 
 const banners = [
   { id: 1, image: "/images/banners/banner-1.png", link: "/distribuidores/ford" },
-  { id: 2, image: "/images/banners/banner-2.png", link: "/distribuidores/ford" },
-  { id: 3, image: "/images/banners/banner-3.png", link: "/distribuidores/ford" },
-  { id: 4, image: "/images/banners/banner-4.png", link: "/distribuidores/ford" },
-  { id: 5, image: "/images/banners/banner-5.png", link: "/distribuidores/ford" },
-  { id: 6, image: "/images/banners/banner-6.png", link: "/distribuidores/ford" },
-  { id: 7, image: "/images/banners/banner-7.png", link: "/distribuidores/ford" },
-  { id: 8, image: "/images/banners/banner-8.png", link: "/distribuidores/ford" },
-  { id: 9, image: "/images/banners/banner-9.png", link: "/distribuidores/ford" },
   { id: 11, image: "/images/banners/banner-11.png", link: "/distribuidores/stellantis" },
+  { id: 3, image: "/images/banners/banner-3.png", link: "/distribuidores/ford" },
   { id: 12, image: "/images/banners/banner-12.png", link: "/distribuidores/stellantis" },
+  { id: 5, image: "/images/banners/banner-5.png", link: "/distribuidores/ford" },
   { id: 13, image: "/images/banners/banner-13.png", link: "/distribuidores/stellantis" },
+  { id: 7, image: "/images/banners/banner-7.png", link: "/distribuidores/ford" },
   { id: 14, image: "/images/banners/banner-14.png", link: "/distribuidores/stellantis" },
+  { id: 9, image: "/images/banners/banner-9.png", link: "/distribuidores/ford" },
   { id: 15, image: "/images/banners/banner-15.png", link: "/distribuidores/stellantis" },
+  { id: 2, image: "/images/banners/banner-2.png", link: "/distribuidores/ford" },
+  { id: 4, image: "/images/banners/banner-4.png", link: "/distribuidores/ford" },
+  { id: 6, image: "/images/banners/banner-6.png", link: "/distribuidores/ford" },
+  { id: 8, image: "/images/banners/banner-8.png", link: "/distribuidores/ford" },
 ];
 
 export default function PromoBanner() {
@@ -53,16 +53,19 @@ export default function PromoBanner() {
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
+      x: direction > 0 ? 80 : -80,
       opacity: 0,
+      scale: 1.04,
     }),
     center: {
       x: 0,
       opacity: 1,
+      scale: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 300 : -300,
+      x: direction < 0 ? 80 : -80,
       opacity: 0,
+      scale: 0.98,
     }),
   };
 
