@@ -86,159 +86,132 @@
   max-width: 640px;
 }
 
-/* Sub Brands */
-.subBrandsSection {
-  padding: 80px 0;
-  background: #ffffff;
-}
-
-.subBrandsSection h2 {
-  font-family: 'Syne', sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #0e0e0e;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.subBrandsGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-}
-
-.subBrandCard {
-  background: #f5f3ef;
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.subBrandCard:hover {
-  background: #0e0e0e;
-  transform: translateY(-4px);
-}
-
-.subBrandCard:hover span {
-  color: #c8102e;
-}
-
-.subBrandCard span {
-  font-family: 'Syne', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: #0e0e0e;
-  transition: color 0.3s;
-}
-
-/* Dealerships */
-.dealershipsSection {
+/* Vehicle Inventory */
+.inventorySection {
   padding: 100px 0;
   background: #f5f3ef;
 }
 
-.dealershipsSection h2 {
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sectionHeader h2 {
   font-family: 'Syne', sans-serif;
   font-size: 36px;
   font-weight: 700;
   color: #0e0e0e;
-  margin-bottom: 48px;
-  text-align: center;
+  margin-bottom: 12px;
 }
 
-.dealershipsGrid {
+.sectionHeader p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  color: #666;
+}
+
+.vehiclesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.dealershipCard {
+.vehicleCard {
+  display: block;
   background: #ffffff;
   border-radius: 16px;
-  padding: 32px;
+  overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.dealershipCard:hover {
+.vehicleCard:hover {
   box-shadow: 0 16px 40px rgba(0,0,0,0.1);
   transform: translateY(-4px);
 }
 
-.dealershipHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  gap: 12px;
-}
-
-.dealershipHeader h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #0e0e0e;
-}
-
-.badge {
-  display: inline-block;
-  padding: 6px 12px;
-  background: #c8102e;
-  color: #0e0e0e;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-}
-
-.dealershipInfo {
-  margin-bottom: 24px;
-}
-
-.infoRow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  color: #666;
-}
-
-.infoRow svg {
-  color: #c8102e;
-  flex-shrink: 0;
-}
-
-.dealershipActions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.whatsappBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+.vehicleImage {
+  position: relative;
   width: 100%;
-  padding: 14px;
-  background: #25D366;
-  color: #ffffff;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  aspect-ratio: 16 / 10;
+  background: #f5f3ef;
+  overflow: hidden;
 }
 
-.whatsappBtn:hover {
-  background: #128C7E;
-  transform: translateY(-2px);
+.vehicleImage img {
+  object-fit: contain;
+  padding: 16px;
+}
+
+.vehicleInfo {
+  padding: 24px;
+}
+
+.vehicleBrand {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c8102e;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.vehicleInfo h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0e0e0e;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.vehicleMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.dot {
+  color: #c8102e;
+}
+
+.vehiclePrice {
+  font-weight: 600;
+  color: #0e0e0e;
+}
+
+.vehicleCta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c8102e;
+  transition: color 0.3s;
+}
+
+.vehicleCard:hover .vehicleCta {
+  color: #0e0e0e;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 24px;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.emptyState p {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  color: #0e0e0e;
+  margin-bottom: 24px;
 }
 
 /* CTA */
@@ -285,12 +258,8 @@
 
 /* Responsive */
 @media (max-width: 991px) {
-  .dealershipsGrid {
+  .vehiclesGrid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .subBrandsGrid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .hero {
@@ -300,12 +269,8 @@
 }
 
 @media (max-width: 767px) {
-  .dealershipsGrid {
+  .vehiclesGrid {
     grid-template-columns: 1fr;
-  }
-
-  .subBrandsGrid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero {
