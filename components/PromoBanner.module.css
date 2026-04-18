@@ -13,10 +13,10 @@
 .carousel {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 21 / 8;
   border-radius: 16px;
   overflow: hidden;
-  background: #ffffff;
+  background: #0e0e0e;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
