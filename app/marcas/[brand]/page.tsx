@@ -111,7 +111,7 @@ export default function BrandDetailPage() {
       <main style={{ paddingTop: "120px" }}>
         <div className={styles.container}>
           <h1>Marca no encontrada</h1>
-          <Link href="/distribuidores">Volver a distribuidores</Link>
+          <Link href="/marcas">Volver a marcas</Link>
         </div>
       </main>
     );
@@ -132,9 +132,9 @@ export default function BrandDetailPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Link href="/distribuidores" className={styles.backLink}>
+              <Link href="/marcas" className={styles.backLink}>
                 <ArrowLeft size={18} />
-                Distribuidores
+                Marcas
               </Link>
             </motion.div>
 
@@ -258,7 +258,7 @@ export default function BrandDetailPage() {
           >
             <h2>¿Te interesa {brand.displayName}?</h2>
             <p>Visítanos en cualquiera de nuestras sucursales o contáctanos por WhatsApp.</p>
-            <Link href="/distribuidores" className={styles.btnOutline}>
+            <Link href="/marcas" className={styles.btnOutline}>
               Ver todas las marcas
             </Link>
           </motion.div>

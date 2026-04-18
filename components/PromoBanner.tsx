@@ -8,20 +8,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./PromoBanner.module.css";
 
 const banners = [
-  { id: 1, image: "/images/banners/banner-1.png", link: "/distribuidores/ford" },
-  { id: 11, image: "/images/banners/banner-11.png", link: "/distribuidores/stellantis" },
-  { id: 3, image: "/images/banners/banner-3.png", link: "/distribuidores/ford" },
-  { id: 12, image: "/images/banners/banner-12.png", link: "/distribuidores/stellantis" },
-  { id: 5, image: "/images/banners/banner-5.png", link: "/distribuidores/ford" },
-  { id: 13, image: "/images/banners/banner-13.png", link: "/distribuidores/stellantis" },
-  { id: 7, image: "/images/banners/banner-7.png", link: "/distribuidores/ford" },
-  { id: 14, image: "/images/banners/banner-14.png", link: "/distribuidores/stellantis" },
-  { id: 9, image: "/images/banners/banner-9.png", link: "/distribuidores/ford" },
-  { id: 15, image: "/images/banners/banner-15.png", link: "/distribuidores/stellantis" },
-  { id: 2, image: "/images/banners/banner-2.png", link: "/distribuidores/ford" },
-  { id: 4, image: "/images/banners/banner-4.png", link: "/distribuidores/ford" },
-  { id: 6, image: "/images/banners/banner-6.png", link: "/distribuidores/ford" },
-  { id: 8, image: "/images/banners/banner-8.png", link: "/distribuidores/ford" },
+  { id: 1, image: "/images/banners/banner-1.png", link: "/marcas/ford" },
+  { id: 11, image: "/images/banners/banner-11.png", link: "/marcas/stellantis" },
+  { id: 3, image: "/images/banners/banner-3.png", link: "/marcas/ford" },
+  { id: 12, image: "/images/banners/banner-12.png", link: "/marcas/stellantis" },
+  { id: 5, image: "/images/banners/banner-5.png", link: "/marcas/ford" },
+  { id: 13, image: "/images/banners/banner-13.png", link: "/marcas/stellantis" },
+  { id: 7, image: "/images/banners/banner-7.png", link: "/marcas/ford" },
+  { id: 14, image: "/images/banners/banner-14.png", link: "/marcas/stellantis" },
+  { id: 9, image: "/images/banners/banner-9.png", link: "/marcas/ford" },
+  { id: 15, image: "/images/banners/banner-15.png", link: "/marcas/stellantis" },
+  { id: 2, image: "/images/banners/banner-2.png", link: "/marcas/ford" },
+  { id: 4, image: "/images/banners/banner-4.png", link: "/marcas/ford" },
+  { id: 6, image: "/images/banners/banner-6.png", link: "/marcas/ford" },
+  { id: 8, image: "/images/banners/banner-8.png", link: "/marcas/ford" },
 ];
 
 export default function PromoBanner() {

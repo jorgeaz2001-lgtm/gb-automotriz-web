@@ -61,7 +61,7 @@ export default function Header() {
             <nav className={styles.desktopNav}>
               <Link href="/" className={styles.navLink}>Inicio</Link>
               
-              {/* Distribuidores dropdown */}
+              {/* Marcas dropdown */}
               <div 
                 ref={dropdownRef}
                 className={styles.dropdown}
@@ -72,7 +72,7 @@ export default function Header() {
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   aria-expanded={dropdownOpen}
                 >
-                  Distribuidores
+                  Marcas
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="12" 
@@ -94,7 +94,7 @@ export default function Header() {
                       {brands.map((brand) => (
                         <Link 
                           key={brand.name}
-                          href={`/distribuidores/${brand.slug}`}
+                          href={`/marcas/${brand.slug}`}
                           className={styles.brandLink}
                           onClick={() => setDropdownOpen(false)}
                         >
@@ -141,7 +141,7 @@ export default function Header() {
           <div className={styles.container}>
             <nav className={styles.mobileNav}>
               <Link href="/" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Inicio</Link>
-              <Link href="/distribuidores" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Distribuidores</Link>
+              <Link href="/marcas" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Marcas</Link>
               <Link href="/seminuevos" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Seminuevos</Link>
               <Link href="/our-services" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Servicio</Link>
               <Link href="/about-us" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Nosotros</Link>

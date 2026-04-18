@@ -47,7 +47,7 @@ const brands = [
   },
 ];
 
-export default function DistribuidoresPage() {
+export default function MarcasPage() {
   return (
     <main className={styles.main}>
       {/* Hero */}
@@ -56,13 +56,13 @@ export default function DistribuidoresPage() {
         <div className={styles.heroContent}>
           <div className={styles.container}>
             <span className={styles.heroEyebrow}>
-              Distribuidores Autorizados
+              Marcas Autorizadas
             </span>
             <h1>
               Nuestras marcas
             </h1>
             <p>
-              Somos distribuidores autorizados de las principales marcas automotrices
+              Somos representantes autorizados de las principales marcas automotrices
               en el noroeste de México. Más de 90 años de experiencia nos respaldan.
             </p>
           </div>
@@ -76,7 +76,7 @@ export default function DistribuidoresPage() {
             {brands.map((brand) => (
               <Link
                 key={brand.slug}
-                href={`/distribuidores/${brand.slug}`}
+                href={`/marcas/${brand.slug}`}
                 className={styles.card}
               >
                   <div className={styles.cardImage}>

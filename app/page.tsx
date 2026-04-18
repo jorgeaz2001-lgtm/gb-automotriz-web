@@ -285,7 +285,7 @@ export default function HomePage() {
                 <Link href="/seminuevos" className={styles.btnPrimary}>
                   Explorar Vehículos
                 </Link>
-                <Link href="/distribuidores" className={styles.btnSecondary}>
+                <Link href="/marcas" className={styles.btnSecondary}>
                   Buscar Vehículos
                 </Link>
               </motion.div>
@@ -518,7 +518,7 @@ export default function HomePage() {
             {[...brands, ...brands].map((brand, index) => (
               <Link
                 key={`${brand.name}-${index}`}
-                href={`/distribuidores/${brand.slug}`}
+                href={`/marcas/${brand.slug}`}
                 className={styles.brandItem}
               >
                 <Image
