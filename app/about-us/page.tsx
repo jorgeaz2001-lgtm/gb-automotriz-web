@@ -6,7 +6,7 @@ const stats = [
   { value: "1927", label: "Año de Fundación" },
   { value: "4", label: "Estados de Presencia" },
   { value: "10+", label: "Marcas Representadas" },
-  { value: "50+", label: "Años de Trayectoria" },
+  { value: "90+", label: "Años de Trayectoria" },
 ];
 
 export default function AboutUsPage() {
