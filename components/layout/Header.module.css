@@ -112,6 +112,39 @@
   gap: 14px;
 }
 
+@media (max-width: 991px) {
+  .dropdownMenu {
+    min-width: 420px;
+    padding: 20px;
+  }
+
+  .brandsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .dropdownMenu {
+    position: fixed;
+    top: 72px;
+    left: 16px;
+    right: 16px;
+    transform: none;
+    min-width: auto;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .brandsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .brandLink {
+    padding: 16px 12px;
+  }
+}
+
 .brandLink {
   display: flex;
   flex-direction: column;

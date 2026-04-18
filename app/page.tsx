@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect, type CSSProperties } from "react";
+import PromoBanner from "@/components/PromoBanner";
 import styles from "./page.module.css";
 
 const categories = [
@@ -301,6 +302,9 @@ export default function HomePage() {
           <div className={styles.scrollLine} />
         </motion.div>
       </section>
+
+      {/* Promo Banner */}
+      <PromoBanner />
 
       {/* Featured Vehicles */}
       <section className={styles.featuredSection}>
