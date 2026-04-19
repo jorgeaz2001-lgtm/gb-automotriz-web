@@ -1,162 +1,410 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { brandGroups, generateWhatsAppLink } from "@/lib/dealerships";
+import { useState, useMemo } from "react";
 import styles from "./page.module.css";
 
-// Mapeo de marcas individuales a sus grupos para mostrar en la página de servicio
-const serviceBrands = [
-  {
-    name: "Ford",
-    groupName: "ford",
-    image: "/images/brands/ford.png",
-    description: "Concesionario oficial Ford con la más amplia gama de vehículos comerciales y de pasajeros. Servicio técnico especializado y refacciones originales.",
-  },
-  {
-    name: "Lincoln",
-    groupName: "lincoln",
-    image: "/images/brands/lincoln.png",
-    description: "Experimenta el lujo americano con Lincoln. Vehículos premium diseñados para ofrecer confort y elegancia en cada viaje.",
-  },
-  {
-    name: "Mazda",
-    groupName: "mazda",
-    image: "/images/brands/mazda.png",
-    description: "La pasión por conducir se siente en cada Mazda. Diseño Kodo, tecnología Skyactiv y una experiencia de manejo única.",
-  },
-  {
-    name: "Peugeot",
-    groupName: "stellantis",
-    image: "/images/brands/peugeot.png",
-    description: "El espíritu deportivo francés en cada vehículo. Diseño elegante, tecnología avanzada y eficiencia en consumo de combustible.",
-  },
-  {
-    name: "Ram",
-    groupName: "stellantis",
-    image: "/images/brands/ram.png",
-    description: "Fuerza y capacidad para el trabajo pesado. Las pickups más potentes del mercado con tecnología de última generación.",
-  },
-  {
-    name: "Dodge",
-    groupName: "stellantis",
-    image: "/images/brands/dodge.png",
-    description: "Potencia americana sin compromisos. Vehículos deportivos con diseño agresivo y motores de alto rendimiento.",
-  },
-  {
-    name: "Jeep",
-    groupName: "stellantis",
-    image: "/images/brands/jeep.png",
-    description: "Aventura sin límites. SUVs 4x4 legendarias diseñadas para conquistar cualquier terreno con estilo y confianza.",
-  },
-  {
-    name: "Fiat",
-    groupName: "stellantis",
-    image: "/images/brands/fiat.png",
-    description: "Estilo italiano en cada detalle. Diseño icónico, tecnología innovadora y la pasión por la conducción urbana.",
-  },
-  {
-    name: "DFAC",
-    groupName: "dongfeng",
-    image: "/images/brands/dfac.png",
-    description: "Vehículos comerciales robustos y confiables para tu negocio. Camiones y unidades de carga con la mejor relación costo-beneficio.",
-  },
-  {
-    name: "Jetour",
-    groupName: "jetour",
-    image: "/images/brands/jetour.png",
-    description: "Descubre la nueva era de movilidad con Jetour. SUVs modernas, equipadas y con garantía extendida.",
-  },
+const brands = [
+  "Ford",
+  "Lincoln",
+  "Mazda",
+  "Peugeot",
+  "Ram",
+  "Dodge",
+  "Jeep",
+  "Fiat",
+  "DFAC",
+  "Jetour",
 ];
 
-export default function ServicesPage() {
+const states = ["Sinaloa", "Sonora", "Baja California Sur", "Jalisco"];
+
+const agenciesByState: Record<string, string[]> = {
+  Sinaloa: ["Culiacán", "Los Mochis", "Mazatlán"],
+  Sonora: ["Ciudad Obregón", "Hermosillo"],
+  "Baja California Sur": ["Los Cabos"],
+  Jalisco: ["Guadalajara"],
+};
+
+const years = Array.from({ length: 18 }, (_, i) => 2027 - i); // 2027 to 2010
+
+const serviceTypes = [
+  "Servicio de Mantenimiento",
+  "Servicio Correctivo",
+  "Servicio de Afinación",
+  "Cambio de Aceite",
+  "Revisión General",
+  "Garantía",
+  "Otro",
+];
+
+// Map individual brand to group name used in dealerships data
+function brandToGroupName(brand: string): string {
+  const map: Record<string, string> = {
+    Ford: "ford",
+    Lincoln: "lincoln",
+    Mazda: "mazda",
+    Peugeot: "stellantis",
+    Ram: "stellantis",
+    Dodge: "stellantis",
+    Jeep: "stellantis",
+    Fiat: "stellantis",
+    DFAC: "dongfeng",
+    Jetour: "jetour",
+  };
+  return map[brand] || "";
+}
+
+// Phone numbers from lib/dealerships.ts (hardcoded for client component)
+const phoneByBrandCity: Record<string, Record<string, string>> = {
+  ford: {
+    Culiacán: "526675032395",
+    "Ciudad Obregón": "526442222834",
+    "Los Mochis": "526682533839",
+  },
+  mazda: {
+    "Los Cabos": "526241840641",
+    Culiacán: "526674672828",
+    Mazatlán: "526699184897",
+  },
+  lincoln: {
+    Culiacán: "526673038502",
+  },
+  dongfeng: {
+    Culiacán: "526673038702",
+    "Ciudad Obregón": "526442220969",
+    Hermosillo: "526621233933",
+    Guadalajara: "523322567752",
+  },
+  stellantis: {
+    "Ciudad Obregón": "526442220568",
+  },
+  jetour: {
+    Culiacán: "526671025850",
+    "Ciudad Obregón": "526442044858",
+  },
+};
+
+function getWhatsAppPhone(brand: string, city: string): string {
+  const group = brandToGroupName(brand);
+  const cityPhones = phoneByBrandCity[group];
+  if (cityPhones && cityPhones[city]) {
+    return cityPhones[city];
+  }
+  // Fallback: generic Ford Culiacán number
+  return "526675032395";
+}
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return "";
+  const [year, month, day] = dateStr.split("-");
+  return `${day}/${month}/${year}`;
+}
+
+export default function ContactsPage() {
+  const [formData, setFormData] = useState({
+    brand: "",
+    state: "",
+    agency: "",
+    model: "",
+    year: "",
+    service: "",
+    date: "",
+    time: "",
+    name: "",
+    phone: "",
+    email: "",
+    comments: "",
+  });
+  const [acceptedPolicy, setAcceptedPolicy] = useState(false);
+
+  const availableAgencies = useMemo(() => {
+    return formData.state ? agenciesByState[formData.state] || [] : [];
+  }, [formData.state]);
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      const next = { ...prev, [name]: value };
+      // Reset agency when state changes
+      if (name === "state") {
+        next.agency = "";
+      }
+      return next;
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const phone = getWhatsAppPhone(formData.brand, formData.agency);
+    const message = `Hola, quiero agendar una cita de servicio.
+
+*Marca:* ${formData.brand}
+*Agencia:* ${formData.agency}, ${formData.state}
+*Modelo:* ${formData.model}
+*Año:* ${formData.year}
+*Servicio:* ${formData.service}
+*Fecha:* ${formatDate(formData.date)}
+*Hora:* ${formData.time}
+
+*Nombre:* ${formData.name}
+*Teléfono:* ${formData.phone}
+*Email:* ${formData.email}
+
+*Comentarios:*
+${formData.comments || "Ninguno"}`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const isFormValid =
+    formData.brand &&
+    formData.state &&
+    formData.agency &&
+    formData.model &&
+    formData.year &&
+    formData.service &&
+    formData.date &&
+    formData.time &&
+    formData.name &&
+    formData.phone &&
+    acceptedPolicy;
+
   return (
     <main style={{ paddingTop: "120px" }}>
       {/* Hero */}
       <section className={styles.hero}>
-        <video
-          className={styles.heroVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-          preload="metadata"
-        >
-          <source src="/videos/servicio-hero.mp4" type="video/mp4" />
-        </video>
-        <div className={styles.heroOverlay} />
         <div className={styles.container}>
-          <h1>Servicios del Grupo</h1>
-          <p>Con atención personalizada en cada sucursal.</p>
+          <h1>Cita de Servicio</h1>
+          <p>Agenda tu cita de servicio y recibe atención profesional para tu vehículo</p>
         </div>
       </section>
 
-      {/* Brands with Locations & WhatsApp */}
-      <section className={styles.services}>
+      {/* Service Appointment Form */}
+      <section className={styles.contactForm}>
         <div className={styles.container}>
-          {serviceBrands.map((serviceBrand, index) => {
-            const group = brandGroups.find((g) => g.name === serviceBrand.groupName);
-            if (!group) return null;
+          <div className={styles.formWrapper}>
+            <h2>Agenda tu cita de servicio</h2>
+            <form onSubmit={handleSubmit}>
+              {/* Brand */}
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="brand">Selecciona una marca *</label>
+                  <select
+                    id="brand"
+                    name="brand"
+                    required
+                    value={formData.brand}
+                    onChange={handleChange}
+                  >
+                    <option value="">Selecciona una marca</option>
+                    {brands.map((b) => (
+                      <option key={b} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="state">Selecciona el estado *</label>
+                  <select
+                    id="state"
+                    name="state"
+                    required
+                    value={formData.state}
+                    onChange={handleChange}
+                  >
+                    <option value="">Selecciona el estado</option>
+                    {states.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
 
-            return (
-              <motion.div
-                key={serviceBrand.name}
-                className={`${styles.serviceRow} ${index % 2 === 1 ? styles.reversed : ""}`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
+              {/* Agency */}
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="agency">Selecciona la agencia *</label>
+                  <select
+                    id="agency"
+                    name="agency"
+                    required
+                    value={formData.agency}
+                    onChange={handleChange}
+                    disabled={!formData.state}
+                  >
+                    <option value="">
+                      {formData.state
+                        ? "Selecciona la agencia"
+                        : "Primero selecciona un estado"}
+                    </option>
+                    {availableAgencies.map((a) => (
+                      <option key={a} value={a}>
+                        {a}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="model">Selecciona el modelo *</label>
+                  <input
+                    type="text"
+                    id="model"
+                    name="model"
+                    required
+                    placeholder="Ej. Territory, CX-5, etc."
+                    value={formData.model}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              {/* Year + Service */}
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="year">Selecciona el año *</label>
+                  <select
+                    id="year"
+                    name="year"
+                    required
+                    value={formData.year}
+                    onChange={handleChange}
+                  >
+                    <option value="">Selecciona el año</option>
+                    {years.map((y) => (
+                      <option key={y} value={y}>
+                        {y}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="service">Selecciona el servicio *</label>
+                  <select
+                    id="service"
+                    name="service"
+                    required
+                    value={formData.service}
+                    onChange={handleChange}
+                  >
+                    <option value="">Selecciona el servicio</option>
+                    {serviceTypes.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Date + Time */}
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="date">Fecha de la cita *</label>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                    value={formData.date}
+                    onChange={handleChange}
+                    min={new Date().toISOString().split("T")[0]}
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="time">Hora de la cita *</label>
+                  <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                    value={formData.time}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              {/* Personal Info */}
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="name">Nombre *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Tu nombre completo"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="phone">Teléfono / WhatsApp *</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    placeholder="Ej. 667 123 4567"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="tu@correo.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="comments">Comentarios</label>
+                <textarea
+                  id="comments"
+                  name="comments"
+                  rows={4}
+                  placeholder="¿Algo que debamos saber sobre tu vehículo?"
+                  value={formData.comments}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className={styles.checkboxGroup}>
+                <input
+                  type="checkbox"
+                  id="policy"
+                  checked={acceptedPolicy}
+                  onChange={(e) => setAcceptedPolicy(e.target.checked)}
+                />
+                <label htmlFor="policy">Acepto las políticas de privacidad.</label>
+              </div>
+
+              <button
+                type="submit"
+                className={styles.submitBtn}
+                disabled={!isFormValid}
               >
-                <div className={styles.serviceImage}>
-                  <Image src={serviceBrand.image} alt={serviceBrand.name} width={400} height={200} />
-                </div>
-                <div className={styles.serviceContent}>
-                  <span className={styles.brandLabel}>{serviceBrand.name}</span>
-                  <h2>{serviceBrand.name} Servicio</h2>
-                  <p>{serviceBrand.description}</p>
-
-                  <div className={styles.sucursales}>
-                    <span className={styles.sucursalesLabel}>Sucursales</span>
-                    <div className={styles.sucursalesList}>
-                      {group.dealerships.map((dealership) => (
-                        <div key={dealership.city} className={styles.sucursalCard}>
-                          <div className={styles.sucursalInfo}>
-                            <strong>{dealership.city}</strong>
-                            <span>{dealership.phone}</span>
-                          </div>
-                          <a
-                            href={generateWhatsAppLink(
-                              dealership.whatsapp,
-                              serviceBrand.name,
-                              dealership.city
-                            )}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.whatsappBtn}
-                            aria-label={`WhatsApp ${serviceBrand.name} ${dealership.city}`}
-                          >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
-                            WhatsApp
-                          </a>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className={styles.cta}>
-        <div className={styles.container}>
-          <h2>Excelencia automotriz en todos los aspectos</h2>
-          <p>Selecciona tu marca y sucursal para contactar directamente por WhatsApp.</p>
+                Agendar Cita
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </main>

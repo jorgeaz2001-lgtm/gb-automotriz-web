@@ -7,9 +7,32 @@
 
 /* Hero */
 .hero {
-  background: #0e0e0e;
+  position: relative;
   padding: 120px 0;
   text-align: center;
+  overflow: hidden;
+  background: #0e0e0e;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -26,184 +49,177 @@
   color: #c8102e;
 }
 
-/* Contact Info */
-.contactInfo {
-  padding: 80px 0;
+/* Services */
+.services {
+  padding: 100px 0;
   background: #f5f3ef;
 }
 
-.infoGrid {
+.serviceRow {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 100px;
 }
 
-.infoCard {
-  background: #ffffff;
-  padding: 50px 30px;
+.serviceRow.reversed {
+  direction: rtl;
+}
+
+.serviceRow.reversed > * {
+  direction: ltr;
+}
+
+.serviceImage {
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
-
-.infoIcon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 24px;
-  background: #c8102e;
-  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  min-height: 350px;
 }
 
-.infoCard h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #0e0e0e;
-  margin-bottom: 12px;
+.serviceImage img {
+  max-width: 100%;
+  max-height: 180px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
-.infoCard p {
+.serviceContent {
+  padding: 20px 0;
+}
+
+.brandLabel {
+  display: inline-block;
   font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  color: #666;
-  line-height: 1.6;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c8102e;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
 }
 
-/* Contact Form */
-.contactForm {
-  padding: 100px 0;
-  background: #ffffff;
-}
-
-.formWrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  background: #f5f3ef;
-  padding: 60px;
-  border-radius: 16px;
-}
-
-.formWrapper h2 {
+.serviceContent h2 {
   font-family: 'Syne', sans-serif;
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 700;
   color: #0e0e0e;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.formRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
   margin-bottom: 24px;
 }
 
-.formGroup {
+.serviceContent p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 28px;
+}
+
+/* Sucursales */
+.sucursales {
+  margin-top: 8px;
+}
+
+.sucursalesLabel {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.sucursalesList {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
-.formGroup label {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #0e0e0e;
-  margin-bottom: 8px;
-}
-
-.formGroup input,
-.formGroup select,
-.formGroup textarea {
-  padding: 16px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #0e0e0e;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  width: 100%;
-}
-
-.formGroup input:focus,
-.formGroup select:focus,
-.formGroup textarea:focus {
-  outline: none;
-  border-color: #c8102e;
-  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
-}
-
-.formGroup input:disabled,
-.formGroup select:disabled {
-  background: #e9e9e9;
-  color: #888;
-  cursor: not-allowed;
-}
-
-.formGroup input::placeholder,
-.formGroup textarea::placeholder {
-  color: #aaa;
-}
-
-/* Date/time inputs */
-.formGroup input[type="date"],
-.formGroup input[type="time"] {
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-/* Checkbox */
-.checkboxGroup {
+.sucursalCard {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  margin: 24px 0 32px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
 }
 
-.checkboxGroup input {
-  width: 20px;
-  height: 20px;
-  accent-color: #c8102e;
-  flex-shrink: 0;
+.sucursalCard:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-.checkboxGroup label {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+.sucursalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sucursalInfo strong {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
   color: #0e0e0e;
 }
 
-/* Submit button */
-.submitBtn {
+.sucursalInfo span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #888;
+}
+
+.whatsappBtn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 18px 48px;
-  background: #c8102e;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #25d366;
   color: #ffffff;
   font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.submitBtn:hover:not(:disabled) {
-  background: #a00d24;
+.whatsappBtn:hover {
+  background: #1ebd5a;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
-.submitBtn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+/* CTA */
+.cta {
+  padding: 120px 0;
+  background: #0e0e0e;
+  text-align: center;
+}
+
+.cta h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.cta p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Responsive */
@@ -212,12 +228,21 @@
     font-size: 48px;
   }
 
-  .infoGrid {
+  .serviceRow {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  .formWrapper {
-    padding: 40px;
+  .serviceRow.reversed {
+    direction: ltr;
+  }
+
+  .serviceContent h2 {
+    font-size: 36px;
+  }
+
+  .cta h2 {
+    font-size: 36px;
   }
 }
 
@@ -234,20 +259,33 @@
     font-size: 18px;
   }
 
-  .contactForm {
+  .services {
     padding: 60px 0;
   }
 
-  .formWrapper {
-    padding: 30px 20px;
+  .serviceRow {
+    margin-bottom: 60px;
   }
 
-  .formWrapper h2 {
+  .serviceContent h2 {
     font-size: 28px;
   }
 
-  .formRow {
-    grid-template-columns: 1fr;
-    gap: 0;
+  .sucursalCard {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .whatsappBtn {
+    justify-content: center;
+  }
+
+  .cta {
+    padding: 80px 0;
+  }
+
+  .cta h2 {
+    font-size: 28px;
   }
 }
