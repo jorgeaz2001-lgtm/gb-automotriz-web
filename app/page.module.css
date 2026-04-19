@@ -232,19 +232,19 @@
   align-items: center;
   padding: 16px 32px;
   background: transparent;
-  color: #ffffff;
+  color: #0e0e0e;
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   border-radius: 8px;
-  border: 1.5px solid rgba(255,255,255,0.5);
+  border: 1.5px solid rgba(0,0,0,0.3);
   transition: all 0.3s ease;
 }
 
 .btnOutlineWhite:hover {
-  background: #ffffff;
-  color: #0e0e0e;
+  background: #0e0e0e;
+  color: #ffffff;
 }
 
 /* Scroll Indicator */
