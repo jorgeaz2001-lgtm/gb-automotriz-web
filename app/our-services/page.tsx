@@ -25,6 +25,20 @@ const agenciesByState: Record<string, string[]> = {
   Jalisco: ["Guadalajara"],
 };
 
+// Ciudades disponibles por marca (para filtrar el select de agencias)
+const citiesByBrand: Record<string, string[]> = {
+  Ford: ["Culiacán", "Ciudad Obregón", "Los Mochis", "Guaymas", "Navojoa"],
+  Lincoln: ["Culiacán"],
+  Mazda: ["Los Cabos", "Culiacán", "Mazatlán"],
+  Peugeot: ["Ciudad Obregón", "Culiacán"],
+  Ram: ["Ciudad Obregón", "Culiacán"],
+  Dodge: ["Ciudad Obregón", "Culiacán"],
+  Jeep: ["Ciudad Obregón", "Culiacán"],
+  Fiat: ["Ciudad Obregón", "Culiacán"],
+  DFAC: ["Culiacán", "Ciudad Obregón", "Hermosillo", "Guadalajara"],
+  Jetour: ["Culiacán", "Ciudad Obregón"],
+};
+
 const years = Array.from({ length: 18 }, (_, i) => 2027 - i); // 2027 to 2010
 
 const serviceTypes = [
@@ -121,8 +135,15 @@ export default function ContactsPage() {
   const [acceptedPolicy, setAcceptedPolicy] = useState(false);
 
   const availableAgencies = useMemo(() => {
-    return formData.state ? agenciesByState[formData.state] || [] : [];
-  }, [formData.state]);
+    if (!formData.state) return [];
+    const stateAgencies = agenciesByState[formData.state] || [];
+    // Si hay marca seleccionada, filtrar solo las agencias que atienden esa marca
+    if (formData.brand && citiesByBrand[formData.brand]) {
+      const allowedCities = citiesByBrand[formData.brand];
+      return stateAgencies.filter((city) => allowedCities.includes(city));
+    }
+    return stateAgencies;
+  }, [formData.state, formData.brand]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -132,8 +153,8 @@ export default function ContactsPage() {
     const { name, value } = e.target;
     setFormData((prev) => {
       const next = { ...prev, [name]: value };
-      // Reset agency when state changes
-      if (name === "state") {
+      // Reset agency when state or brand changes
+      if (name === "state" || name === "brand") {
         next.agency = "";
       }
       return next;

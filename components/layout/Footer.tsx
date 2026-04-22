@@ -54,10 +54,16 @@ export default function Footer() {
           <div className={styles.footerCol}>
             <h4>Marcas</h4>
             <ul>
-              <li><Link href="/brand/ford">Ford</Link></li>
-              <li><Link href="/brand/lincoln">Lincoln</Link></li>
-              <li><Link href="/brand/mazda">Mazda</Link></li>
-              <li><Link href="/brand/peugeot">Peugeot</Link></li>
+              <li><Link href="/marcas/ford">Ford</Link></li>
+              <li><Link href="/marcas/lincoln">Lincoln</Link></li>
+              <li><Link href="/marcas/mazda">Mazda</Link></li>
+              <li><Link href="/marcas/stellantis">Peugeot</Link></li>
+              <li><Link href="/marcas/stellantis">Ram</Link></li>
+              <li><Link href="/marcas/stellantis">Dodge</Link></li>
+              <li><Link href="/marcas/stellantis">Jeep</Link></li>
+              <li><Link href="/marcas/stellantis">Fiat</Link></li>
+              <li><Link href="/marcas/dongfeng">Dongfeng</Link></li>
+              <li><Link href="/marcas/jetour">Jetour</Link></li>
             </ul>
           </div>
           
