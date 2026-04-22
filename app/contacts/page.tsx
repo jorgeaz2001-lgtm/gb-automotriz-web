@@ -121,7 +121,7 @@ ${formData.mensaje || "Ninguno"}`;
                         checked={formData.interes === "financiado"}
                         onChange={handleChange}
                       />
-                      <span>A) Financiado</span>
+                      <span>Financiado</span>
                     </label>
                     <label className={styles.radioLabel}>
                       <input
@@ -131,7 +131,7 @@ ${formData.mensaje || "Ninguno"}`;
                         checked={formData.interes === "contado"}
                         onChange={handleChange}
                       />
-                      <span>B) De contado</span>
+                      <span>De contado</span>
                     </label>
                   </div>
                 </div>
