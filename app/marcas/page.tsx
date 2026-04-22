@@ -8,7 +8,7 @@ const brands = [
     name: "Ford",
     tagline: "Construido para ser el mejor.",
     image: "/images/brands-pages/ford.jpg",
-    cities: ["Culiacán", "Ciudad Obregón", "Los Mochis", "Guaymas", "Navojoa"],
+    cities: ["Culiacán", "Ciudad Obregón", "Los Mochis"],
   },
   {
     slug: "lincoln",
@@ -43,7 +43,7 @@ const brands = [
     name: "Stellantis",
     tagline: "Jeep · Peugeot · Fiat · Ram · Dodge",
     image: "/images/brands-pages/jetour2.jpeg",
-    cities: ["Ciudad Obregón", "Culiacán"],
+    cities: ["Ciudad Obregón"],
   },
 ];
 

@@ -20,21 +20,21 @@ const states = ["Sinaloa", "Sonora", "Baja California Sur", "Jalisco"];
 
 const agenciesByState: Record<string, string[]> = {
   Sinaloa: ["Culiacán", "Los Mochis", "Mazatlán"],
-  Sonora: ["Ciudad Obregón", "Hermosillo", "Guaymas", "Navojoa"],
+  Sonora: ["Ciudad Obregón", "Hermosillo"],
   "Baja California Sur": ["Los Cabos"],
   Jalisco: ["Guadalajara"],
 };
 
 // Ciudades disponibles por marca (para filtrar el select de agencias)
 const citiesByBrand: Record<string, string[]> = {
-  Ford: ["Culiacán", "Ciudad Obregón", "Los Mochis", "Guaymas", "Navojoa"],
+  Ford: ["Culiacán", "Ciudad Obregón", "Los Mochis"],
   Lincoln: ["Culiacán"],
   Mazda: ["Los Cabos", "Culiacán", "Mazatlán"],
-  Peugeot: ["Ciudad Obregón", "Culiacán"],
-  Ram: ["Ciudad Obregón", "Culiacán"],
-  Dodge: ["Ciudad Obregón", "Culiacán"],
-  Jeep: ["Ciudad Obregón", "Culiacán"],
-  Fiat: ["Ciudad Obregón", "Culiacán"],
+  Peugeot: ["Ciudad Obregón"],
+  Ram: ["Ciudad Obregón"],
+  Dodge: ["Ciudad Obregón"],
+  Jeep: ["Ciudad Obregón"],
+  Fiat: ["Ciudad Obregón"],
   DFAC: ["Culiacán", "Ciudad Obregón", "Hermosillo", "Guadalajara"],
   Jetour: ["Culiacán", "Ciudad Obregón"],
 };
@@ -74,8 +74,6 @@ const phoneByBrandCity: Record<string, Record<string, string>> = {
     Culiacán: "526675032395",
     "Ciudad Obregón": "526442222834",
     "Los Mochis": "526682533839",
-    Guaymas: "",
-    Navojoa: "",
   },
   mazda: {
     "Los Cabos": "526241840641",
@@ -93,7 +91,6 @@ const phoneByBrandCity: Record<string, Record<string, string>> = {
   },
   stellantis: {
     "Ciudad Obregón": "526442220568",
-    Culiacán: "",
   },
   jetour: {
     Culiacán: "526671025850",

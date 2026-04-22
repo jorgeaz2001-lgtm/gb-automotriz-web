@@ -22,8 +22,6 @@ export const cityCoordinates: Record<string, { lat: number; lng: number }> = {
   "Los Cabos": { lat: 22.8905, lng: -109.9167 },
   "Hermosillo": { lat: 29.0729, lng: -110.9559 },
   "Guadalajara": { lat: 20.6597, lng: -103.3496 },
-  "Guaymas": { lat: 27.9214, lng: -110.8994 },
-  "Navojoa": { lat: 27.0722, lng: -109.4439 },
 };
 
 export const brandGroups: BrandGroup[] = [
@@ -34,8 +32,6 @@ export const brandGroups: BrandGroup[] = [
       { city: "Culiacán", phone: "6675032395", whatsapp: "526675032395" },
       { city: "Ciudad Obregón", phone: "6442222834", whatsapp: "526442222834" },
       { city: "Los Mochis", phone: "6682533839", whatsapp: "526682533839" },
-      { city: "Guaymas", phone: "Por confirmar", whatsapp: "" },
-      { city: "Navojoa", phone: "Por confirmar", whatsapp: "" },
     ],
   },
   {
@@ -69,7 +65,6 @@ export const brandGroups: BrandGroup[] = [
     displayName: "Stellantis",
     dealerships: [
       { city: "Ciudad Obregón", phone: "6442220568", whatsapp: "526442220568" },
-      { city: "Culiacán", phone: "Por confirmar", whatsapp: "" },
     ],
   },
   {
