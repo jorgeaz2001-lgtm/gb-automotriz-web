@@ -42,7 +42,7 @@ const brands = [
     slug: "stellantis",
     name: "Stellantis",
     tagline: "Jeep · Peugeot · Fiat · Ram · Dodge",
-    image: "/images/brands-pages/jetour2.jpeg",
+    image: "/images/brands-pages/stellantis-culiacan.jpg",
     cities: ["Ciudad Obregón"],
   },
 ];

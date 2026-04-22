@@ -60,7 +60,7 @@ const brandsData: Record<string, BrandData> = {
   stellantis: {
     name: "stellantis",
     displayName: "Stellantis",
-    heroImage: "/images/brands-pages/jetour2.jpeg",
+    heroImage: "/images/brands-pages/stellantis-culiacan.jpg",
     description:
       "Stellantis reúne las marcas más icónicas del mundo automotriz: Jeep, Peugeot, Fiat, Ram y Dodge. Cada una con su propia identidad, pero todas con el respaldo de GB Automotriz.",
     tagline: "Cinco marcas, una familia.",
