@@ -116,6 +116,8 @@ const brands = [
   { name: "Dodge", logo: "/images/brands/dodge.png", slug: "stellantis" },
   { name: "Jeep", logo: "/images/brands/jeep.png", slug: "stellantis" },
   { name: "Fiat", logo: "/images/brands/fiat.png", slug: "stellantis" },
+  { name: "Dongfeng", logo: "/images/brands/dfac.png", slug: "dongfeng" },
+  { name: "Jetour", logo: "/images/brands/jetour.png", slug: "jetour" },
 ];
 
 const testimonials = [

@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 const locations = [
   {
     name: "Agencia Seminuevos Obregón",
-    address: "Calle Jalisco #151 esq. con Chiapas, Fracc. San Benito, C.P. 83179, Cd. Obregón, Son.",
+    address: "Miguel Alemán y Morelos, No. 300, Col. Centro, 85000 Cd. Obregón, Son.",
     phone: "644 236 4338",
     whatsapp: "526442364338",
     image: "/images/seminuevos-app.png",
