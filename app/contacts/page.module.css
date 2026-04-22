@@ -222,6 +222,136 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Form Section */
+.formSection {
+  padding: 100px 0;
+  background: #f5f3ef;
+}
+
+.formWrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 48px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0e0e0e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.formGroup input,
+.formGroup textarea {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  padding: 14px 18px;
+  border: 1px solid #e0ddd8;
+  border-radius: 10px;
+  background: #fafafa;
+  color: #0e0e0e;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #c8102e;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  padding: 10px 14px;
+  background: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #e0ddd8;
+  transition: border-color 0.2s ease;
+}
+
+.radioLabel:hover {
+  border-color: #c8102e;
+}
+
+.radioLabel input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #c8102e;
+  cursor: pointer;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: #25d366;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.submitBtn:hover {
+  background: #1ebd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
+.success {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0e0e0e;
+  margin-bottom: 12px;
+}
+
+.success p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  color: #666;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .hero h1 {
