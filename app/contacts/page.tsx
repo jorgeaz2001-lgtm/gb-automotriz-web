@@ -33,7 +33,7 @@ export default function ContactsPage() {
 *Mensaje:*
 ${formData.mensaje || "Ninguno"}`;
 
-    const url = `https://wa.me/526681030004?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/526442364338?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     setSubmitted(true);
   };
