@@ -15,8 +15,8 @@ const locations = [
   {
     name: "Agencia Seminuevos Los Mochis",
     address: "Blvd. Centenario #1240 Sur, Fracc. Vista Hermosa, C.P. 81278, Los Mochis, Sin.",
-    phone: "668 818 1611",
-    whatsapp: "526688181611",
+    phone: "644 236 4338",
+    whatsapp: "526442364338",
     image: "/images/nosotros-agencia.jpg",
     hours: "Lunes a Viernes: 9:00 - 19:00, Sábados: 9:00 - 14:00",
     mapUrl: "https://maps.google.com/maps?q=Ford%20mochis&t=m&z=14&output=embed&iwloc=near"
@@ -24,8 +24,8 @@ const locations = [
   {
     name: "Agencia Seminuevos Culiacán",
     address: "Blvd. Pedro Infante #3540, Desarrollo Urbano Tres Ríos, C.P. 80110, Culiacán, Sin.",
-    phone: "667 715 1010",
-    whatsapp: "526677151010",
+    phone: "644 236 4338",
+    whatsapp: "526442364338",
     image: "/images/servicios-hero.jpg",
     hours: "Lunes a Viernes: 9:00 - 19:00, Sábados: 9:00 - 14:00",
     mapUrl: "https://maps.google.com/maps?q=ford%20culiacan&t=m&z=14&output=embed&iwloc=near"
