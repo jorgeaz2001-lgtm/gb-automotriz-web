@@ -73,7 +73,7 @@ export default function Footer() {
             <ul>
               <li><Link href="/contacts">Contáctanos</Link></li>
               <li><Link href="#">Aviso de Privacidad</Link></li>
-              <li><span>Navojoa, Sonora, México</span></li>
+              <li><span>Culiacán, Sinaloa, México</span></li>
             </ul>
           </div>
         </div>

@@ -9,7 +9,7 @@ const locations = [
     phone: "644 236 4338",
     whatsapp: "526442364338",
     image: "/images/seminuevos-app.png",
-    hours: "Lunes a Viernes: 9:00 - 19:00, Sábados: 9:00 - 14:00",
+    hours: "Lunes a Viernes: 8:00 - 19:00, Sábados: 8:00 - 13:00",
     mapUrl: "https://maps.google.com/maps?q=Ford%20obregon&t=m&z=13&output=embed&iwloc=near"
   },
   {
@@ -18,7 +18,7 @@ const locations = [
     phone: "644 236 4338",
     whatsapp: "526442364338",
     image: "/images/nosotros-agencia.jpg",
-    hours: "Lunes a Viernes: 9:00 - 19:00, Sábados: 9:00 - 14:00",
+    hours: "Lunes a Viernes: 8:00 - 19:00, Sábados: 8:00 - 13:00",
     mapUrl: "https://maps.google.com/maps?q=Ford%20mochis&t=m&z=14&output=embed&iwloc=near"
   },
   {
@@ -27,7 +27,7 @@ const locations = [
     phone: "644 236 4338",
     whatsapp: "526442364338",
     image: "/images/servicios-hero.jpg",
-    hours: "Lunes a Viernes: 9:00 - 19:00, Sábados: 9:00 - 14:00",
+    hours: "Lunes a Viernes: 8:00 - 19:00, Sábados: 8:00 - 13:00",
     mapUrl: "https://maps.google.com/maps?q=ford%20culiacan&t=m&z=14&output=embed&iwloc=near"
   },
 ];
